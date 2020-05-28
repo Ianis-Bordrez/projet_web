@@ -1,23 +1,24 @@
 <!doctype html>
 <html lang="fr">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="css/nav_bar.css">
-    <link rel="stylesheet" href="css/hamburger.css" rel="stylesheet">
-    <title>bootstrap 4 sidebar</title>
+    <link rel="stylesheet" href="css/hamburger.css">
+	<link rel="stylesheet" href="css/main.css">
+
+    <title>Metin 2</title>
+
   </head>
   <body>
-   
     <div class="wrapper">
+		<!-- ---------------------NAVIGATION--------------------- -->
    		<nav id="sidebar">
    			<div class="sidebar-header">
-   				<h3>Metin 2</h3>
+   				<h1>Metin 2</h1>
    			</div>
    			<ul class="list-unstyled components">
    				<li class="active">
@@ -44,26 +45,69 @@
    					<a href="#">Forum</a>
    				</li>
    			</ul>
+			<ul class="list-unstyled CTAs">
+				<li>
+					<a href="#" class="download">Télécharger</a>
+				</li>
+   			</ul>
 		</nav>
-   	<div class="content">
-   		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-      		<button id="sidebarCollapse" class="hamburger hamburger--emphatic is-active" type="button">
-				<span class="hamburger-box">
-					<span class="hamburger-inner"></span>
-				</span>
-      		</button>
-			<!--<a class="navbar-brand" href="#">Navbar</a> -->
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    			<span class="navbar-toggler-icon"></span>
-  			</button>
-		</nav>
+		<!-- ---------------------NAVIGATION--------------------- -->
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<!-- ---------------------CONTENT--------------------- -->
+		<div class="content">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<button id="sidebarCollapse" class="hamburger hamburger--emphatic is-active" type="button">
+					<span class="hamburger-box">
+						<span class="hamburger-inner"></span>
+					</span>
+				</button>
+				<!--<a class="navbar-brand" href="#">Navbar</a> -->
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav ml-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="index.php">Accueil <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Connexion</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Inscription</a>
+					</li>
+					</ul>
+				</div>
+			</nav>
+			<h2>Collapsible Sidebar Using Bootstrap 4</h2>
+			
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			
+			<div class="line"></div>
+			
+			<h2>Collapsible Sidebar Using Bootstrap 4</h2>
+			
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			
+			<div class="line"></div>
+			<h2>Collapsible Sidebar Using Bootstrap 4</h2>
+			
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			
+			<div class="line"></div>
+		</div>
+		<!-- ---------------------CONTENT--------------------- -->
+	</div>
+
+    <!-- ---------------------OPTION--------------------- -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    
+    <!-- ---------------------OPTION--------------------- -->
+
     <script>
 	    $(document).ready(function(){
 			$('#sidebarCollapse').on('click',function(){
@@ -71,15 +115,15 @@
 			});
 		});  
 	</script>
+
+	<!-- ---------------------HAMBURGER--------------------- -->
   	<script>
-		// Look for .hamburger
 		var hamburger = document.querySelector(".hamburger");
-		// On click
 		hamburger.addEventListener("click", function() {
-		// Toggle class "is-active"
 		hamburger.classList.toggle("is-active");
-		// Do something else, like open/close menu
 		});
 	</script>
+	<!-- ---------------------HAMBURGER--------------------- -->
+
   </body>
 </html>
