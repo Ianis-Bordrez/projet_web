@@ -5,9 +5,7 @@
  * @site https://jonsuh.com/hamburgers
  * @link https://github.com/jonsuh/hamburgers
  */
-button, button:focus, button:active {
-    outline: none;
-}
+
  .hamburger {
     padding: 15px 15px;
     display: inline-block;
