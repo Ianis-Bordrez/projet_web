@@ -1,5 +1,5 @@
 <?php 
-require_once('config.php');
+require_once('../config.php');
 
 if(empty($_POST['userName']) || empty($_POST['password']) || empty($_POST['email']) || empty($_POST['phone'])){
     header('Location: ../signin_signup.php');

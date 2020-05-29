@@ -5,7 +5,7 @@ CREATE TABLE account (
     description LONGTEXT,
     email VARCHAR(50) NOT NULL,
     phone VARCHAR(10) NULL,
-    create_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    creation_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     status ENUM('PLAYER','ADMIN') DEFAULT 'PLAYER'
 );
 
@@ -18,7 +18,7 @@ CREATE TABLE player (
     mp INT(11) NOT NULL,
     level INT(11) NOT NULL,
     gold INT(11) NOT NULL,
-    create_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+    creation_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE inventory (
@@ -41,7 +41,7 @@ CREATE TABLE post (
     account_id INT(11) NOT NULL REFERENCES account(account_id),
     title VARCHAR(20) NOT NULL,
     content LONGTEXT NOT NULL,
-    post_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+    creation_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE answer (
@@ -49,7 +49,7 @@ CREATE TABLE answer (
     account_id INT(11) NOT NULL REFERENCES account(account_id),
     title VARCHAR(20) NOT NULL,
     content LONGTEXT NOT NULL,
-    post_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+    creation_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE private_message (
@@ -58,4 +58,12 @@ CREATE TABLE private_message (
     receiver_id INT(11) NOT NULL REFERENCES account(account_id),
     message LONGTEXT NOT NULL,
     message_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE news (
+    new_id INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    account_id INT(11) NOT NULL REFERENCES account(account_id),
+    title VARCHAR(20) NOT NULL,
+    content LONGTEXT NOT NULL,
+    creation_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );

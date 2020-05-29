@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 $database_host = 'localhost';
 $database_port = '3306';
 $database_dbname = 'ynovprojetweb_2020';
@@ -11,15 +13,21 @@ $database_options = [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
 ];
 
-$db = new PDO(
-    'mysql:host=' . $database_host .
-    ';port=' . $database_port .
-    ';dbname=' . $database_dbname .
-    ';charset=' . $database_charset,
-    $database_user,
-    $database_password,
-    $database_options
-);
+try {
+	$db = new PDO(
+        'mysql:host=' . $database_host .
+        ';port=' . $database_port .
+        ';dbname=' . $database_dbname .
+        ';charset=' . $database_charset,
+        $database_user,
+        $database_password,
+        $database_options
+    );
+}
+catch(Exception $e) {
+        die('Erreur : '.$e->getMessage());
+}
+
 
 function isConnected() {
     if (isset($_SESSION['account_id'])) {

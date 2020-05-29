@@ -1,3 +1,6 @@
+<?php
+require_once('config.php');
+?>
 <!doctype html>
 <html lang="fr">
   <head>
@@ -71,66 +74,125 @@
 					<li class="nav-item active">
 						<a class="nav-link" href="index.php">Accueil <span class="sr-only">(current)</span></a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="signin_signup.php">Connexion</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="signin_signup.php">Inscription</a>
-					</li>
+					<?php
+					if (isConnected()) {
+						echo"
+							<li class='nav-item'>
+								<a class='nav-link' href='script/s_signout.php'>Déconnexion</a>
+							</li>
+						";
+					} else {
+						echo"
+							<li class='nav-item'>
+								<a class='nav-link' href='signin_signup.php'>Connexion</a>
+							</li>
+							<li class='nav-item'>
+								<a class='nav-link' href='signin_signup.php'>Inscription</a>
+							</li>
+						";
+					}
+					?>
 					</ul>
 				</div>
 			</nav>
 
+			<div class="row mx-auto my-auto">
+				<?php
+					if (isConnected()) {
+						echo "<div class='col-9'>";
+					} else {
+						echo "<div class='col'>";
+					}
+				?>
 			<!-- ---------CAROUSEL--------- -->
-			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-				<ol class="carousel-indicators">
-					<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-					<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-					<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-				</ol>
-				<div class="carousel-inner">
-					<div class="carousel-item active">
-					<!-- Taille img : 2767 x 657 -->
-					<img class="d-block w-100" src="img/mainlogo.png" alt="First slide">
+				<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+					<ol class="carousel-indicators">
+						<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+						<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+						<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+					</ol>
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+						<!-- Taille img : 2767 x 657 -->
+						<img class="d-block w-100" src="img/mainlogo.png" alt="First slide">
+						</div>
+						<div class="carousel-item">
+						<img class="d-block w-100" src="img/mainlogo.png" alt="Second slide">
+						</div>
+						<div class="carousel-item">
+						<img class="d-block w-100" src="img/mainlogo.png" alt="Third slide">
+						</div>
 					</div>
-					<div class="carousel-item">
-					<img class="d-block w-100" src="img/mainlogo.png" alt="Second slide">
-					</div>
-					<div class="carousel-item">
-					<img class="d-block w-100" src="img/mainlogo.png" alt="Third slide">
+					<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>
+			</div>
+
+			<!-- ---------CAROUSEL-END--------- -->
+			<?php
+			if (isConnected()) {
+				$username = $_SESSION['username'];
+				echo "
+				<div class='col'>
+					<div class='card' style='width: 18rem;'>
+						<div class='card-header'>
+							Pannel utilisateur
+						</div>
+						<div class='card-body'>
+							<ul class='list-group list-group-flush list-unstyled'>
+								<li class='list-group-item'><h5 class='card-title'>Bienvenue $username</h5></li>
+								<a href='..' class='list-group-item list-group-item-action'><li><img src='img/person.svg' alt='person'> Mon compte</li></a>
+								<a href='..' class='list-group-item list-group-item-action'><li>Mes personnages</li></a>
+								<a href='..' class='list-group-item list-group-item-action'><li>Rechargement</li></a>
+							</ul>
+						</div>
 					</div>
 				</div>
-				<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					<span class="sr-only">Previous</span>
-				</a>
-				<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="sr-only">Next</span>
-				</a>
-			</div>
-			<!-- ---------CAROUSEL-END--------- -->
+				";
+			}
+			echo "</div>";
 
-			<h2>Collapsible Sidebar Using Bootstrap 4</h2>
-			
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			
-			<div class="line"></div>
-			
-			<h2>Collapsible Sidebar Using Bootstrap 4</h2>
-			
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			
-			<div class="line"></div>
-			<h2>Collapsible Sidebar Using Bootstrap 4</h2>
-			
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			
-			<div class="line"></div>
-		</div>
+			$req = $db->prepare('SELECT title, account_id, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS creation_date_fr FROM news ORDER BY creation_date DESC LIMIT 0, 5');
+			$req->execute();
+			$news = $req->fetchall();
+			$req->closeCursor();
+			foreach ($news as $new) {
+				$title = htmlspecialchars($new['title']);
+				$account_id = htmlspecialchars($new['account_id']);
+				$content = nl2br(htmlspecialchars($new['content']));
+				$date = htmlspecialchars($new['creation_date_fr']);
+
+				$req = $db->prepare('SELECT username FROM account WHERE account_id=:account_id');
+				$req->execute(array('account_id' => $account_id));
+				$username = $req->fetch()['username'];
+				$req->closeCursor();
+				echo "
+					<br>
+					<div class='card'>
+						<div class='card-header'>
+							$title
+						</div>
+						<div class='card-body'>
+							<blockquote class='blockquote mb-0'>
+							<p>$content</p>
+							<footer class='blockquote-footer'><cite title='Source Title'>$username</cite></footer>
+							</blockquote>
+						</div>
+						<div class='card-footer text-muted'>
+							$date
+						</div>
+					</div>
+					";
+				}
+				
+			?>
+	</div>
 		<!-- ---------------------CONTENT-END--------------------- -->
 	</div>
 
@@ -139,8 +201,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <!-- ---------------------OPTION-END--------------------- -->
-
-    <script>
+	
+	<script>
 	    $(document).ready(function(){
 			$('#sidebarCollapse').on('click',function(){
 				$('#sidebar').toggleClass('active');
@@ -156,6 +218,5 @@
 		});
 	</script>
 	<!-- ---------------------HAMBURGER-END--------------------- -->
-
   </body>
 </html>
