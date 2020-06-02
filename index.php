@@ -139,24 +139,27 @@ require_once('config.php');
 			if (isConnected()) {
 				$username = $_SESSION['username'];
 				echo "
-				<div class='col'>
-					<div class='card' style='width: 18rem;'>
-						<div class='card-header'>
-							Pannel utilisateur
-						</div>
-						<div class='card-body'>
-							<ul class='list-group list-group-flush list-unstyled'>
-								<li class='list-group-item'><h5 class='card-title'>Bienvenue $username</h5></li>
-								<a href='..' class='list-group-item list-group-item-action'><li><img src='img/person.svg' alt='person'> Mon compte</li></a>
-								<a href='..' class='list-group-item list-group-item-action'><li>Mes personnages</li></a>
-								<a href='..' class='list-group-item list-group-item-action'><li>Rechargement</li></a>
-							</ul>
+					<div class='col'>
+						<div class='card' style='width: 18rem;'>
+							<div class='card-header'>
+								Pannel utilisateur
+							</div>
+							<div class='card-body'>
+								<ul class='list-group list-group-flush list-unstyled'>
+									<li class='list-group-item'><h5 class='card-title'>Bienvenue $username</h5></li>
+									<a href='..' class='list-group-item list-group-item-action'><li><img src='img/person.svg' alt='person'> Mon compte</li></a>
+									<a href='..' class='list-group-item list-group-item-action'><li>Mes personnages</li></a>
+									<a href='..' class='list-group-item list-group-item-action'><li>Rechargement</li></a>
+								</ul>
+							</div>
 						</div>
 					</div>
-				</div>
 				";
 			}
-			echo "</div>";
+			echo "
+				</div>
+				<div class='row mx-auto my-auto main-content'>
+					<section class='col-9'>";
 
 			$req = $db->prepare('SELECT title, account_id, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS creation_date_fr FROM news ORDER BY creation_date DESC LIMIT 0, 5');
 			$req->execute();
@@ -172,26 +175,65 @@ require_once('config.php');
 				$req->execute(array('account_id' => $account_id));
 				$username = $req->fetch()['username'];
 				$req->closeCursor();
+				echo "<article>";
 				echo "
-					<br>
-					<div class='card'>
-						<div class='card-header'>
-							$title
+						<div class='card'>
+							<div class='card-header'>
+								$title
+							</div>
+							<div class='card-body'>
+								<blockquote class='blockquote mb-0'>
+								<p>$content</p>
+								<footer class='blockquote-footer'><cite title='Source Title'>$username</cite></footer>
+								</blockquote>
+							</div>
+							<div class='card-footer text-muted'>
+								$date
+							</div>
 						</div>
-						<div class='card-body'>
-							<blockquote class='blockquote mb-0'>
-							<p>$content</p>
-							<footer class='blockquote-footer'><cite title='Source Title'>$username</cite></footer>
-							</blockquote>
-						</div>
-						<div class='card-footer text-muted'>
-							$date
-						</div>
-					</div>
+					</article>
 					";
 				}
+
+			echo "
+				</section>
+				<aside class='col'>
+				";
+
+			echo "
+				<div class='card aside-card' style='width: 18rem;'>
+					<div class='card-header'>
+						Statistiques
+					</div>
+					<div class='card-body'>
+						<ul class='list-group list-group-flush list-unstyled'>
+							<li class='list-group-item'>Joueurs connectés </li>
+							<li class='list-group-item'>Comptes créés </li>
+							<li class='list-group-item'>Joueurs créés </li>
+						</ul>
+					</div>
+				</div>
+
+				<div class='card aside-card' style='width: 18rem;'>
+					<div class='card-header'>
+						Classement
+					</div>
+					<div class='card-body'>
+						<ul class='list-group list-group-flush list-unstyled'>
+							<li class='list-group-item'><h5 class='card-title'>Joueurs/guildes</h5></li>
+							<li class='list-group-item'>- Joueur</li>
+							<li class='list-group-item'>- Joueur</li>
+							<li class='list-group-item'>- Joueur</li>
+						</ul>
+					</div>
+				</div>
 				
+			";
+			
 			?>
+			</aside>
+		</div>
+
 	</div>
 		<!-- ---------------------CONTENT-END--------------------- -->
 	</div>
