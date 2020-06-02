@@ -5,8 +5,9 @@ CREATE TABLE account (
     description LONGTEXT,
     email VARCHAR(50) NOT NULL,
     phone VARCHAR(10) NULL,
-    creation_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    status ENUM('PLAYER','ADMIN') DEFAULT 'PLAYER'
+    creation_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    status ENUM('PLAYER','ADMIN') DEFAULT 'PLAYER',
+    last_activity timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE player (
@@ -18,7 +19,7 @@ CREATE TABLE player (
     mp INT(11) NOT NULL,
     level INT(11) NOT NULL,
     gold INT(11) NOT NULL,
-    creation_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+    creation_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE inventory (
@@ -41,7 +42,7 @@ CREATE TABLE post (
     account_id INT(11) NOT NULL REFERENCES account(account_id),
     title VARCHAR(20) NOT NULL,
     content LONGTEXT NOT NULL,
-    creation_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+    creation_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE answer (
@@ -49,7 +50,7 @@ CREATE TABLE answer (
     account_id INT(11) NOT NULL REFERENCES account(account_id),
     title VARCHAR(20) NOT NULL,
     content LONGTEXT NOT NULL,
-    creation_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+    creation_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE private_message (
@@ -57,7 +58,8 @@ CREATE TABLE private_message (
     sender_id INT(11) NOT NULL REFERENCES account(account_id),
     receiver_id INT(11) NOT NULL REFERENCES account(account_id),
     message LONGTEXT NOT NULL,
-    message_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+    status TINYINT(1) NOT NULL DEFAULT 0,
+    message_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE news (
@@ -65,5 +67,5 @@ CREATE TABLE news (
     account_id INT(11) NOT NULL REFERENCES account(account_id),
     title VARCHAR(20) NOT NULL,
     content LONGTEXT NOT NULL,
-    creation_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+    creation_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 );

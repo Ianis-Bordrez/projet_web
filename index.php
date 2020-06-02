@@ -40,7 +40,7 @@ require_once('config.php');
    					</ul> 
    				</li>
    				<li>
-   					<a href="#">Chat</a>
+   					<a href="list_pm.php">Chat</a>
    				</li>
    				<li>
    					<a href="#">Wiki</a>
