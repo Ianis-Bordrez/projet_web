@@ -36,6 +36,22 @@ function isConnected() {
     return False;
 }
 
+function isNotConnectedRedirect($page = "signin_signup.php") {
+    /**
+     * Fonction de bidouillage pour corriger le warning : Cannot modify header information - headers already sent by
+     * 
+     * Permet de rediriger l'utilisateur non connecté sur une autre page passé en paramètre après que le headers soit créé.
+     * 
+    */
+    if (!isConnected()) {
+        echo "<script type='text/JavaScript'>
+        location.replace('$page'); 
+        </script>
+        ";
+        exit();
+    }
+}
+
 function fetch_user_last_activity($user_id, $db) {
     $req = $db->prepare("SELECT account_id, last_activity FROM account WHERE account_id = :account_id ORDER BY last_activity DESC LIMIT 1");
     $req->execute(array("account_id"=> $user_id));

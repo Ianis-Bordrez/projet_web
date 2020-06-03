@@ -13,7 +13,8 @@ if (!isConnected()) {
     $phone = htmlspecialchars($_POST['phone']);
 
     $req = $db->prepare('SELECT username FROM account WHERE username = :username');
-    $req->execute(array('username' => $username));
+    $req->bindParam('username', $username);
+    $req->execute();
     $username_exist = $req->fetch();
 
     if ($username_exist){
@@ -25,12 +26,13 @@ if (!isConnected()) {
     $pass_hash = password_hash($password, PASSWORD_DEFAULT);
 
     $req = $db->prepare('INSERT INTO account (username, password, email, phone) VALUES (:username, :password, :email, :phone)');
-    $req->execute(array(
-        'username' => $username,
-        'password' => $pass_hash,
-        'email' => $email,
-        'phone' => $phone
-        ));
+
+    $req->bindParam('username', $username);
+    $req->bindParam('password', $pass_hash);
+    $req->bindParam('email', $email);
+    $req->bindParam('phone', $phone);
+
+    $req->execute();
 }
 
 header('Location: ../signin_signup.php');

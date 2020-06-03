@@ -1,6 +1,5 @@
 $(document).ready(function(){
     fetch_user();
-
     setInterval(function(){
         update_last_activity();
         fetch_user();
@@ -10,11 +9,11 @@ $(document).ready(function(){
     function fetch_user() {
         $.ajax({
         url:"script/s_fetch_user.php",
-        method:"POST",
+        type:"POST",
         success:function(data) {
             $('#user_details').html(data);
         }
-        })
+        });
     }
 
     function update_last_activity() {
@@ -58,7 +57,7 @@ $(document).ready(function(){
         var message = $('#message_'+receiver_id).val();
         $.ajax({
             url:"script/s_insert_chat.php",
-            method:"POST",
+            type:"POST",
             data:{receiver_id:receiver_id, message:message},
             success:function(data) {
                 $('#message_'+receiver_id).val('');
@@ -70,7 +69,7 @@ $(document).ready(function(){
     function fetch_user_chat_history(receiver_id) {
         $.ajax({
         url:"script/s_fetch_user_chat_history.php",
-        method:"POST",
+        type:"POST",
         data:{receiver_id:receiver_id},
         success:function(data){
             $('#chat_history_'+receiver_id).html(data);

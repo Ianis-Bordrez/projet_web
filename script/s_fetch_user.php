@@ -4,17 +4,21 @@
 
 require_once('config.php');
 
-$req = $db->prepare(" SELECT * FROM account WHERE account_id != :id ");
-$req->execute(array('id' => $_SESSION['account_id']));
+$req = $db->prepare(" SELECT * FROM account WHERE account_id != :account_id ");
+$req->bindParam('account_id', $_SESSION['account_id']);
+$req->execute();
 $result = $req->fetchAll();
 
 $output = '
-<table class="table table-bordered table-striped">
- <tr>
-  <td>Username</td>
-  <td>Status</td>
-  <td>Action</td>
- </tr>
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Username</th>
+      <th scope="col">Status</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
 ';
 
 foreach($result as $row) {
@@ -24,22 +28,25 @@ foreach($result as $row) {
     $user_last_activity = fetch_user_last_activity($row['account_id'], $db);
 
     if($user_last_activity > $current_timestamp) {
-        $status = '<span class="label label-success">Online</span>';
+        $status = '<span class="bg-success">Online</span>';
     }
     else {
-        $status = '<span class="label label-danger">Offline</span>';
+        $status = '<span class="bg-danger">Offline</span>';
     }
 
     $output .= '
     <tr>
-        <td>'.$row['username'].'</td>
-        <td>'.$status.'</td>
-        <td><button type="button" class="btn btn-info btn-xs start_chat" data-receiverid="'.$row['account_id'].'" data-receiverusername="'.$row['username'].'">Start Chat</button></td>
+      <td>'.$row['username'].'</td>
+      <td>'.$status.'</td>
+      <td><button type="button" class="btn btn-info btn-xs start_chat" data-receiverid="'.$row['account_id'].'" data-receiverusername="'.$row['username'].'">Start Chat</button></td>
     </tr>
     ';
 }
 
-$output .= '</table>';
+$output .= '
+</tbody>
+</table>
+';
 
 echo $output;
 
