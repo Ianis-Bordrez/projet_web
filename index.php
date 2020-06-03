@@ -1,5 +1,5 @@
 <?php
-require_once('config.php');
+require_once('script/config.php');
 ?>
 <!doctype html>
 <html lang="fr">
@@ -40,7 +40,7 @@ require_once('config.php');
    					</ul> 
    				</li>
    				<li>
-   					<a href="list_pm.php">Chat</a>
+   					<a href="chat.php">Chat</a>
    				</li>
    				<li>
    					<a href="#">Wiki</a>

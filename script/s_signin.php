@@ -1,5 +1,5 @@
 <?php
-require_once('../config.php');
+require_once('config.php');
 
 if (!isConnected()) {
     $req = $db->prepare('SELECT account_id, username, password, status FROM account WHERE username = :username');
