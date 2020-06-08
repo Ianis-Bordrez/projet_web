@@ -1,5 +1,11 @@
 <?php
 require_once('script/config.php');
+
+$time = microtime();
+$time = explode(' ', $time);
+$time = $time[1] + $time[0];
+$start = $time;
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">

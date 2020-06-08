@@ -2,34 +2,44 @@
 require_once("header.php");
 ?>
 
-<div class='col'>
-    <div class='card' style='width: 100%;'>
-        <div class='card-header'>
-            Compte
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Information du compte</h4>
+                <hr>
+            </div>
         </div>
-        <div class='card-body'>
-            <ul class='list-group list-group-flush list-unstyled'>
-                <li class='list-group-item'><h5 class='card-title'>Informations sur votre compte</h5></li>
-                <li><div class="row">
-                    <label class="col-sm-2 col-form-label">Nom d'utilisateur</label>
-                    <div class="col-sm-10">
-                        <p>Utilisateur<p>
+        <div class="row">
+            <div class="col-md-12">
+                <form>
+                    <div class="form-group row">
+                    <label for="username" class="col-4 col-form-label">Nom d'utilisateur*</label> 
+                    <div class="col-8">
+                        <input id="username" name="username" placeholder="Nom d'utilisateur" class="form-control here" required="required" type="text">
                     </div>
-                </div></li>
-                <li><div class="row">
-                    <label class="col-sm-2 col-form-label">Email</label>
-                    <div class="col-sm-10">
-                        <p>email@email.fr<p>
                     </div>
-                </div></li>
-                <li><div class="row">
-                    <label class="col-sm-2 col-form-label">Description</label>
-                    <div class="col-sm-10">
-                        <p>Votre description<p>
+                    <div class="form-group row">
+                    <label for="email" class="col-4 col-form-label">Email*</label> 
+                    <div class="col-8">
+                        <input id="email" name="email" placeholder="Email" class="form-control here" required="required" type="text">
                     </div>
-                </div></li>
-            </ul>
+                    </div>
+                    <div class="form-group row">
+                    <label for="description" class="col-4 col-form-label">Description</label> 
+                    <div class="col-8">
+                        <textarea id="publicinfo" name="publicinfo" cols="40" rows="4" class="form-control"></textarea>
+                    </div>
+                    </div>  
+                    <div class="form-group row">
+                    <div class="offset-4 col-8">
+                        <button name="submit" type="submit" class="btn btn-primary">Mettre à jour</button>
+                    </div>
+                    </div>
+                </form>
+            </div>
         </div>
+        
     </div>
 </div>
 

@@ -1,5 +1,22 @@
 <?php
 require_once("header.php");
+
+
+$req = $db->prepare('SELECT sum(account_id) as "Number of users" FROM account');
+$req->execute();
+$nb_accounts = $req->fetch()["Number of users"];
+if (!$nb_accounts){
+	$nb_accounts = 0;
+}
+$req->closeCursor();
+
+$req = $db->prepare('SELECT sum(player_id) as "Number of players" FROM player');
+$req->execute();
+$nb_players = $req->fetch()["Number of players"];
+if (!$nb_players){
+	$nb_players = 0;
+}
+$req->closeCursor();
 ?>
 
 
@@ -108,9 +125,9 @@ if (isConnected()) {
 			</div>
 			<div class='card-body'>
 				<ul class='list-group list-group-flush list-unstyled'>
-					<li class='list-group-item'>Comptes connectés </li>
-					<li class='list-group-item'>Comptes créés </li>
-					<li class='list-group-item'>Joueurs créés </li>
+					<li class='list-group-item'>Comptes connectés : <?php echo ""; ?></li>
+					<li class='list-group-item'>Comptes créés : <?php echo $nb_accounts; ?></li>
+					<li class='list-group-item'>Joueurs créés : <?php echo $nb_players; ?></li>
 				</ul>
 			</div>
 		</div>
