@@ -9,7 +9,7 @@ if (isConnected()) { ?>
 	<div class='col-9'>
 <?php
 } else { ?>
-	<div class='col'>";
+	<div class='col'>
 <?php
 } ?>
 		<!-- ---------CAROUSEL--------- -->
@@ -44,7 +44,7 @@ if (isConnected()) { ?>
 	<!-- ---------CAROUSEL-END--------- -->
 <?php
 if (isConnected()) {
-	$username = $_SESSION['username']; ?>
+	$username = $_SESSION['username'];?>
 	<div class='col'>
 		<div class='card' style='width: 18rem;'>
 			<div class='card-header'>
@@ -52,7 +52,7 @@ if (isConnected()) {
 			</div>
 			<div class='card-body'>
 				<ul class='list-group list-group-flush list-unstyled'>
-					<li class='list-group-item'><h5 class='card-title'>Bienvenue $username</h5></li>
+					<li class='list-group-item'><h5 class='card-title'>Bienvenue <?php echo $username; ?></h5></li>
 					<a href='..' class='list-group-item list-group-item-action'><li><img src='img/person.svg' alt='person'> Mon compte</li></a>
 					<a href='..' class='list-group-item list-group-item-action'><li>Mes personnages</li></a>
 					<a href='..' class='list-group-item list-group-item-action'><li>Rechargement</li></a>
@@ -85,16 +85,16 @@ if (isConnected()) {
 			<article>
 				<div class='card'>
 					<div class='card-header'>
-						$title
+						<?php echo $title; ?>
 					</div>
 					<div class='card-body'>
 						<blockquote class='blockquote mb-0'>
-						<p>$content</p>
-						<footer class='blockquote-footer'><cite title='Source Title'>$username</cite></footer>
+						<p><?php echo $content; ?></p>
+						<footer class='blockquote-footer'><cite title='Source Title'><?php echo $username; ?></cite></footer>
 						</blockquote>
 					</div>
 					<div class='card-footer text-muted'>
-						$date
+						<?php echo $date; ?>
 					</div>
 				</div>
 			</article>
@@ -108,7 +108,7 @@ if (isConnected()) {
 			</div>
 			<div class='card-body'>
 				<ul class='list-group list-group-flush list-unstyled'>
-					<li class='list-group-item'>Joueurs connectés </li>
+					<li class='list-group-item'>Comptes connectés </li>
 					<li class='list-group-item'>Comptes créés </li>
 					<li class='list-group-item'>Joueurs créés </li>
 				</ul>
