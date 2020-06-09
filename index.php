@@ -84,7 +84,6 @@ if (isConnected()) {
 <div class='row mx-auto my-auto sub-sontent'> <!-- Sub-Content -->
 	<section class='col-9'>
 		<?php
-
 		$req = $db->prepare('SELECT title, account_id, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS creation_date_fr FROM news ORDER BY creation_date DESC LIMIT 0, 5');
 		$req->execute();
 		$news = $req->fetchall();
@@ -118,6 +117,7 @@ if (isConnected()) {
 		<?php
 		} ?>
 	</section>
+
 	<aside class='col'>
 		<div class='card aside-card' style='width: 18rem;'>
 			<div class='card-header'>

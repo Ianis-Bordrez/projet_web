@@ -26,3 +26,7 @@ article{
 .white{
     color: white !important;
 }
+
+.grey-hover:hover{
+    color: gray !important;
+}
