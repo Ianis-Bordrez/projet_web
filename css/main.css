@@ -1,34 +1,35 @@
 /* remember to define focus styles! */
 
-button, button:focus, button:active, a, a:focus, a:active {
-    outline: none;
+button,
+button:focus,
+button:active,
+a,
+a:focus,
+a:active {
+  outline: none;
 }
 
-.lightblue{
-    background-color: #2B3253;
+.lightblue {
+  background-color: #2b3253;
 }
 
-.darkblue{
-    background-color: #0F1642;
+.darkblue {
+  background-color: #0f1642;
 }
-.purple{
-    background-color: #9E94FF;
+.purple {
+  background-color: #9e94ff;
 }
-.sub-sontent{
-    margin-top: 20px !important;
-}
-
-article{
-    margin-bottom: 25px;
-}
-.aside-card{
-    margin-bottom: 25px;
+.sub-sontent {
+  margin-top: 20px !important;
 }
 
-.white{
-    color: #fff;
+article {
+  margin-bottom: 25px;
+}
+.aside-card {
+  margin-bottom: 25px;
 }
 
-.white:hover{
-    color: #fff !important;
+.white {
+  color: #fff;
 }

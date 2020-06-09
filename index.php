@@ -138,10 +138,72 @@ if (isConnected()) {
 			</div>
 			<div class='card-body'>
 				<ul class='list-group list-group-flush list-unstyled'>
-					<li class='list-group-item'><h5 class='card-title'>Joueurs/guildes</h5></li>
-					<li class='list-group-item'>- Joueur</li>
-					<li class='list-group-item'>- Joueur</li>
-					<li class='list-group-item'>- Joueur</li>
+				<link
+					rel="stylesheet"
+					href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css"
+					integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt"
+					crossorigin="anonymous"
+					/>
+					<div id="lebail">
+						<ul class="nav nav-tabs" id="myTab" role="tablist">
+							<li class="nav-item col-md-6">
+								<a
+									class="nav-link active white"
+									id="home-tab"
+									data-toggle="tab"
+									href="#home"
+									role="tab"
+									aria-controls="home"
+									aria-selected="true"
+								>Joueur</a>
+							</li>
+							<li class="nav-item col-md-6">
+								<a
+									class="nav-link white"
+									id="profile-tab"
+									data-toggle="tab"
+									href="#profile"
+									role="tab"
+									aria-controls="profile"
+									aria-selected="false"
+								>Guilde</a>
+							</li>
+						</ul>
+							<div class="tab-content" id="myTabContent">
+								<div
+									class="tab-pane fade show active"
+									id="home"
+									role="tabpanel"
+									aria-labelledby="home-tab"
+									>
+									<ul class='list-group list-group-flush list-unstyled'>
+										<li class='list-group-item'>- Joueur</li>
+										<li class='list-group-item'>- Joueur</li>
+										<li class='list-group-item'>- Joueur</li>
+										<li class='list-group-item'>- Joueur</li>
+										<li class='list-group-item'>- Joueur</li>
+										<li class='list-group-item'>- Joueur</li>
+										<li class='list-group-item'>- Joueur</li>
+									</ul>
+								</div>
+							<div
+								class="tab-pane fade"
+								id="profile"
+								role="tabpanel"
+								aria-labelledby="profile-tab"
+								>
+								<ul class='list-group list-group-flush list-unstyled'>
+									<li class='list-group-item'>- Joueur</li>
+									<li class='list-group-item'>- Joueur</li>
+									<li class='list-group-item'>- Joueur</li>
+									<li class='list-group-item'>- Joueur</li>
+									<li class='list-group-item'>- Joueur</li>
+									<li class='list-group-item'>- Joueur</li>
+									<li class='list-group-item'>- Joueur</li>
+								</ul>
+							</div>
+						</div>
+					</div>
 				</ul>
 			</div>
 		</div>
