@@ -139,13 +139,64 @@ if (isConnected()) {
 			<div class='card-body'>
 				<h5 class='card-title'>Joueur/Guilde</h5>
 				<ul class='list-group list-group-flush list-unstyled'>
-					<li class='list-group-item'>- Joueur</li>
-					<li class='list-group-item'>- Joueur</li>
-					<li class='list-group-item'>- Joueur</li>
-					<li class='list-group-item'>- Joueur</li>
-					<li class='list-group-item'>- Joueur</li>
-					<li class='list-group-item'>- Joueur</li>
-					<li class='list-group-item'>- Joueur</li>
+					<ul class="nav nav-tabs" id="myTab" role="tablist">
+						<li class="nav-item col-md-6">
+							<a
+								class="nav-link active white"
+								id="home-tab"
+								data-toggle="tab"
+								href="#home"
+								role="tab"
+								aria-controls="home"
+								aria-selected="true"
+							>Joueur</a>
+						</li>
+						<li class="nav-item col-md-6">
+							<a
+								class="nav-link white"
+								id="profile-tab"
+								data-toggle="tab"
+								href="#profile"
+								role="tab"
+								aria-controls="profile"
+								aria-selected="false"
+							>Guilde</a>
+						</li>
+					</ul>
+						<div class="tab-content" id="myTabContent">
+							<div
+								class="tab-pane fade show active"
+								id="home"
+								role="tabpanel"
+								aria-labelledby="home-tab"
+								>
+								<ul class='list-group list-group-flush list-unstyled'>
+									<li class='list-group-item'>- Joueur</li>
+									<li class='list-group-item'>- Joueur</li>
+									<li class='list-group-item'>- Joueur</li>
+									<li class='list-group-item'>- Joueur</li>
+									<li class='list-group-item'>- Joueur</li>
+									<li class='list-group-item'>- Joueur</li>
+									<li class='list-group-item'>- Joueur</li>
+								</ul>
+							</div>
+						<div
+							class="tab-pane fade"
+							id="profile"
+							role="tabpanel"
+							aria-labelledby="profile-tab"
+							>
+							<ul class='list-group list-group-flush list-unstyled'>
+								<li class='list-group-item'>- Joueur</li>
+								<li class='list-group-item'>- Joueur</li>
+								<li class='list-group-item'>- Joueur</li>
+								<li class='list-group-item'>- Joueur</li>
+								<li class='list-group-item'>- Joueur</li>
+								<li class='list-group-item'>- Joueur</li>
+								<li class='list-group-item'>- Joueur</li>
+							</ul>
+						</div>
+					</div>
 				</ul>
 			</div>
 		</div>
