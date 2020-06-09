@@ -93,15 +93,15 @@ $start = $time;
 						<?php
 						if (isConnected()) { ?>
 							<li class='nav-item'>
-								<a class='nav-link white' href='script/s_signout.php'>Déconnexion</a>
+								<a class='nav-link white grey-hover' href='script/s_signout.php'>Déconnexion</a>
 							</li>
 						<?php
 						} else { ?>
-							<li class='nav-item white'>
-								<a class='nav-link' href='signin_signup.php'>Connexion</a>
+							<li class='nav-item'>
+								<a class='nav-link white grey-hover' href='signin_signup.php'>Connexion</a>
 							</li>
 							<li class='nav-item'>
-								<a class='nav-link white' href='signin_signup.php'>Inscription</a>
+								<a class='nav-link white grey-hover' href='signin_signup.php'>Inscription</a>
 							</li>
 
 						<?php

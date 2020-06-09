@@ -1,7 +1,7 @@
 <?php 
 require_once('config.php');
 
-if(empty($_POST['userName']) || empty($_POST['password']) || empty($_POST['email']) || empty($_POST['phone'])){
+if(empty($_POST['userName']) || empty($_POST['password']) || empty($_POST['email'])){
     header('Location: ../signin_signup.php');
     exit();
 }
