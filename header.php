@@ -32,7 +32,7 @@ $start = $time;
 <body>
     <div class="wrapper">
         <!-- Sidebar Holder -->
-        <nav id="sidebar">
+        <nav id="sidebar" class = "darkblue">
             <div class="sidebar-header">
                 <h3>Metin 2</h3>
             </div>
@@ -72,12 +72,12 @@ $start = $time;
         </nav>
 
         <!-- Page Content Holder -->
-        <div id="content">
+        <div id="content" class= "lightblue">
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg darkblue">
                 <div class="container-fluid">
 
-                    <button type="button" id="sidebarCollapse" class="navbar-btn">
+                    <button type="button" id="sidebarCollapse" class="navbar-btn darkblue">
                         <span></span>
                         <span></span>
                         <span></span>
@@ -93,15 +93,15 @@ $start = $time;
 						<?php
 						if (isConnected()) { ?>
 							<li class='nav-item'>
-								<a class='nav-link' href='script/s_signout.php'>Déconnexion</a>
+								<a class='nav-link white' href='script/s_signout.php'>Déconnexion</a>
 							</li>
 						<?php
 						} else { ?>
-							<li class='nav-item'>
+							<li class='nav-item white'>
 								<a class='nav-link' href='signin_signup.php'>Connexion</a>
 							</li>
 							<li class='nav-item'>
-								<a class='nav-link' href='signin_signup.php'>Inscription</a>
+								<a class='nav-link white' href='signin_signup.php'>Inscription</a>
 							</li>
 
 						<?php
