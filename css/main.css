@@ -1,28 +1,43 @@
-button, button:focus, button:active, a, a:focus, a:active {
-    outline: none;
+button,
+button:focus,
+button:active,
+a,
+a:focus,
+a:active {
+  outline: none;
 }
 
-.lightblue{
-    background-color: #2B3253;
+.lightblue {
+    background-color: #2b3253;
 }
 
-.darkblue{
-    background-color: #0F1642;
+.darkblue {
+    background-color: #0f1642;
 }
-.purple{
-    background-color: #9E94FF;
+.purple {
+    background-color: #9e94ff;
 }
-.sub-sontent{
+.white {
+    color: white;
+}
+
+.grey-hover:hover {
+    color: gray !important;
+}
+
+.sub-sontent {
     margin-top: 20px !important;
 }
 
-article{
+article {
     margin-bottom: 25px;
 }
+
 .aside-card{
     margin-bottom: 25px;
 }
 
+<<<<<<< HEAD
 .white{
     color: white !important;
 }
@@ -33,3 +48,5 @@ article{
 .borderpost{
     border-width: 10px;
 }
+=======
+>>>>>>> c634e4a318c665ce99ee9e360fdc4070ce13145a
