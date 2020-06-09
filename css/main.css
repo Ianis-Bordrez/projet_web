@@ -8,31 +8,32 @@ a:active {
 }
 
 .lightblue {
-  background-color: #2b3253;
+    background-color: #2b3253;
 }
 
 .darkblue {
-  background-color: #0f1642;
+    background-color: #0f1642;
 }
 .purple {
-  background-color: #9e94ff;
+    background-color: #9e94ff;
 }
+.white {
+    color: white;
+}
+
+.grey-hover:hover {
+    color: gray !important;
+}
+
 .sub-sontent {
-  margin-top: 20px !important;
+    margin-top: 20px !important;
 }
 
 article {
-  margin-bottom: 25px;
+    margin-bottom: 25px;
 }
 
 .aside-card{
     margin-bottom: 25px;
 }
 
-.white {
-  color: white;
-}
-
-.grey-hover:hover {
-  color: gray !important;
-}
