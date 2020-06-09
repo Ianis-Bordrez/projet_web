@@ -26,3 +26,10 @@ article{
 .white{
     color: white !important;
 }
+.post{
+    margin-top: 500px;
+    margin-bottom: 500px;
+}
+.borderpost{
+    border-width: 10px;
+}
