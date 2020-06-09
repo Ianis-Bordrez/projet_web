@@ -101,7 +101,7 @@ $start = $time;
 								<a class='nav-link' href='signin_signup.php'>Connexion</a>
 							</li>
 							<li class='nav-item'>
-								<a class='nav-link' href='signin_signup.php'>Inscription</a>
+								<a class='nav-link white' href='signin_signup.php'>Inscription</a>
 							</li>
 
 						<?php
