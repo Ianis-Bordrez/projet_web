@@ -137,9 +137,8 @@ if (isConnected()) {
 				Classement
 			</div>
 			<div class='card-body'>
-				<h5 class='card-title'>Joueur/Guilde</h5>
 				<ul class='list-group list-group-flush list-unstyled'>
-					<ul class="nav nav-tabs" id="myTab" role="tablist">
+					<ul class="nav nav-tabs row" id="myTab" role="tablist">
 						<li class="nav-item col-md-6">
 							<a
 								class="nav-link active white"
@@ -187,13 +186,13 @@ if (isConnected()) {
 							aria-labelledby="profile-tab"
 							>
 							<ul class='list-group list-group-flush list-unstyled'>
-								<li class='list-group-item'>- Joueur</li>
-								<li class='list-group-item'>- Joueur</li>
-								<li class='list-group-item'>- Joueur</li>
-								<li class='list-group-item'>- Joueur</li>
-								<li class='list-group-item'>- Joueur</li>
-								<li class='list-group-item'>- Joueur</li>
-								<li class='list-group-item'>- Joueur</li>
+								<li class='list-group-item'>- Guilde</li>
+								<li class='list-group-item'>- Guilde</li>
+								<li class='list-group-item'>- Guilde</li>
+								<li class='list-group-item'>- Guilde</li>
+								<li class='list-group-item'>- Guilde</li>
+								<li class='list-group-item'>- Guilde</li>
+								<li class='list-group-item'>- Guilde</li>
 							</ul>
 						</div>
 					</div>

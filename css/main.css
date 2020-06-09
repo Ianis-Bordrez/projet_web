@@ -30,7 +30,7 @@ article {
 }
 
 .white {
-  color: white !important;
+  color: white;
 }
 
 .grey-hover:hover {
