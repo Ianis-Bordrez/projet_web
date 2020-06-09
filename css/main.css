@@ -9,7 +9,9 @@ button, button:focus, button:active, a, a:focus, a:active {
 .darkblue{
     background-color: #0F1642;
 }
-
+.purple{
+    background-color: #9E94FF;
+}
 .sub-sontent{
     margin-top: 20px !important;
 }
@@ -17,7 +19,6 @@ button, button:focus, button:active, a, a:focus, a:active {
 article{
     margin-bottom: 25px;
 }
-
 .aside-card{
     margin-bottom: 25px;
 }
