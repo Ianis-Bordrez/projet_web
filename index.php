@@ -137,14 +137,19 @@ if (isConnected()) {
 				Classement
 			</div>
 			<div class='card-body'>
+				<h5 class='card-title'>Joueur/Guilde</h5>
 				<ul class='list-group list-group-flush list-unstyled'>
-					<li class='list-group-item'><h5 class='card-title'>Joueurs/guildes</h5></li>
+					<li class='list-group-item'>- Joueur</li>
+					<li class='list-group-item'>- Joueur</li>
+					<li class='list-group-item'>- Joueur</li>
+					<li class='list-group-item'>- Joueur</li>
 					<li class='list-group-item'>- Joueur</li>
 					<li class='list-group-item'>- Joueur</li>
 					<li class='list-group-item'>- Joueur</li>
 				</ul>
 			</div>
 		</div>
+
 	</aside>
 </div> <!-- Sub-Content -->
 
