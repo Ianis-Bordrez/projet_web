@@ -149,8 +149,8 @@ if (isConnected()) {
 				</ul>
 			</div>
 		</div>
-
 	</aside>
+
 </div> <!-- Sub-Content -->
 
 <?php

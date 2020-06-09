@@ -12,7 +12,6 @@ require_once("header.php");
         </div>
         <div class="row">
             <div class="col-md-12">
-                <form>
                     <div class="form-group row white">
                     <label for="username" class="col-4 col-form-label">Nom d'utilisateur*</label> 
                     <div class="col-8 white">
@@ -30,13 +29,7 @@ require_once("header.php");
                     <div class="col-8 white">
                         <textarea id="publicinfo" name="publicinfo" cols="40" rows="4" class="form-control lightblue"></textarea>
                     </div>
-                    </div>  
-                    <div class="form-group row white">
-                    <div class="offset-4 col-8">
-                        <button name="submit" type="submit" class="btn btn-primary purple">Mettre à jour</button>
                     </div>
-                    </div>
-                </form>
             </div>
         </div>
         
