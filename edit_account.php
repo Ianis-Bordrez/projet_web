@@ -27,19 +27,19 @@ $acc_info = $req->fetch();
                         <div class="form-group row white">
                         <label for="username" class="col-4 col-form-label">Nom d'utilisateur*</label> 
                         <div class="col-8 white">
-                            <input id="username" name="username" placeholder="<?php echo $acc_info['username']?>" class="form-control here lightblue" required="required" type="text">
+                            <input id="username" name="username" value="<?php echo $acc_info['username']?>" class="form-control here lightblue" required="required" type="text">
                         </div>
                         </div>
                         <div class="form-group row white">
                         <label for="email" class="col-4 col-form-label">Email*</label> 
                         <div class="col-8 white">
-                            <input id="email" name="email" placeholder="<?php echo $acc_info['email']?>" class="form-control here lightblue" required="required" type="text">
+                            <input id="email" name="email" value="<?php echo $acc_info['email']?>" class="form-control here lightblue" required="required" type="text">
                         </div>
                         </div>
                         <div class="form-group row white">
                         <label for="description" class="col-4 col-form-label">Description</label> 
                         <div class="col-8 white">
-                            <textarea id="description" placeholder="<?php echo $acc_info['description']?>" name="description" cols="40" rows="4" class="form-control lightblue"><?php echo $acc_info['description']?></textarea>
+                            <textarea id="description" value="<?php echo $acc_info['description']?>" name="description" cols="40" rows="4" class="form-control lightblue"><?php echo $acc_info['description']?></textarea>
                         </div>
                         </div>  
                         <div class="form-group row white">
