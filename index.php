@@ -70,7 +70,7 @@ if (isConnected()) {
 			<div class='card-body'>
 				<ul class='list-group list-group-flush list-unstyled'>
 					<li class='list-group-item'><h5 class='card-title'>Bienvenue <?php echo $username; ?></h5></li>
-					<a href='..' class='list-group-item list-group-item-action'><li><img src='img/person.svg' alt='person'> Mon compte</li></a>
+					<a href='account.php' class='list-group-item list-group-item-action'><li><img src='img/person.svg' alt='person'> Mon compte</li></a>
 					<a href='..' class='list-group-item list-group-item-action'><li>Mes personnages</li></a>
 					<a href='..' class='list-group-item list-group-item-action'><li>Rechargement</li></a>
 				</ul>

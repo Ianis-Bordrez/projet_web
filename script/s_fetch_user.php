@@ -38,7 +38,7 @@ foreach($result as $row) {
     <tr>
       <td>'.$row['username'].'</td>
       <td>'.$status.'</td>
-      <td><button type="button" class="btn btn-info btn-xs start_chat" data-receiverid="'.$row['account_id'].'" data-receiverusername="'.$row['username'].'">Start Chat</button></td>
+      <td><button type="button" class="btn btn-info btn-xs start_chat purple" data-receiverid="'.$row['account_id'].'" data-receiverusername="'.$row['username'].'">Start Chat</button></td>
     </tr>
     ';
 }
