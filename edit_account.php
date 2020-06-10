@@ -1,17 +1,15 @@
 <?php
-require_once("script/config.php");
-if (!isConnected()){
-    header('Location: signin_signup.php');
-}
 require_once("header.php");
-$pid = $_SESSION['account_id'];
+
+isNotConnectedRedirect();
+
 $req = $db->prepare('SELECT * FROM account where account_id=:id');
-$req->execute(array("id"=> $pid));
+$req->bindParam('id', $_SESSION['account_id']);
+$req->execute();
 $acc_info = $req->fetch();
 ?>
 
-
-
+<section>
 <article>
     <div class="card darkblue">
         <div class="card-body">
@@ -54,6 +52,7 @@ $acc_info = $req->fetch();
         </div>
     </div>
 </article>
+</section>
 
 <?php
 require_once("footer.php");

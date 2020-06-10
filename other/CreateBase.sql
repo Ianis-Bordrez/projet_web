@@ -15,6 +15,7 @@ CREATE TABLE player (
     account_id INT(11) NOT NULL REFERENCES account(account_id),
     name VARCHAR(20) NOT NULL,
     class ENUM('NINJA', 'SHAMAN', 'SURA', 'WARRIOR') NOT NULL,
+    gender ENUM('MALE','FEMALE') NOT NULL,
     hp INT(11) NOT NULL,
     mp INT(11) NOT NULL,
     level INT(11) NOT NULL,
