@@ -97,7 +97,8 @@ if (isConnected()) {
 			$req = $db->prepare('SELECT username FROM account WHERE account_id=:account_id');
 			$req->execute(array('account_id' => $account_id));
 			$username = $req->fetch()['username'];
-			$req->closeCursor(); ?>
+			$req->closeCursor();
+			?>
 			<article>
 				<div class='card'>
 					<div class='card-header'>

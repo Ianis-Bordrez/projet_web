@@ -44,12 +44,16 @@ function isNotConnectedRedirect($page = "signin_signup.php") {
      * 
     */
     if (!isConnected()) {
-        echo "<script type='text/JavaScript'>
-        location.replace('$page'); 
-        </script>
-        ";
-        exit();
+        redirect($page);
     }
+}
+
+function redirect($page) {
+    echo "<script type='text/JavaScript'>
+    location.replace('$page'); 
+    </script>
+    ";
+    exit();
 }
 
 function fetch_user_last_activity($user_id, $db) {

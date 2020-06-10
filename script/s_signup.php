@@ -25,12 +25,11 @@ if (!isConnected()) {
 
     $pass_hash = password_hash($password, PASSWORD_DEFAULT);
 
-    $req = $db->prepare('INSERT INTO account (username, password, email, phone) VALUES (:username, :password, :email, :phone)');
+    $req = $db->prepare('INSERT INTO account (username, password, email) VALUES (:username, :password, :email)');
 
     $req->bindParam('username', $username);
     $req->bindParam('password', $pass_hash);
     $req->bindParam('email', $email);
-    $req->bindParam('phone', $phone);
 
     $req->execute();
 }
