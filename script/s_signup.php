@@ -10,7 +10,6 @@ if (!isConnected()) {
     $username = htmlspecialchars($_POST['userName']);
     $password = htmlspecialchars($_POST['password']);
     $email = htmlspecialchars($_POST['email']);
-    $phone = htmlspecialchars($_POST['phone']);
 
     $req = $db->prepare('SELECT username FROM account WHERE username = :username');
     $req->bindParam('username', $username);
