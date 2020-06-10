@@ -63,7 +63,7 @@ if (isConnected()) { ?>
 if (isConnected()) {
 	$username = $_SESSION['username'];?>
 	<div class='col'>
-		<div class='card' style='width: 18rem;'>
+		<div class='card' style='max-width: 18rem;'>
 			<div class='card-header'>
 				Pannel utilisateur
 			</div>
@@ -118,9 +118,8 @@ if (isConnected()) {
 		<?php
 		} ?>
 	</section>
-
 	<aside class='col'>
-		<div class='card aside-card' style='width: 18rem;'>
+		<div class='card aside-card' style='max-width: 18rem;'>
 			<div class='card-header'>
 				Statistiques
 			</div>
@@ -132,17 +131,16 @@ if (isConnected()) {
 				</ul>
 			</div>
 		</div>
-
-		<div class='card aside-card' style='width: 18rem;'>
+		<div class='card aside-card' style='max-width: 18rem; min-width: 17rem'>
 			<div class='card-header'>
-				Classement
+				Statistiques
 			</div>
 			<div class='card-body'>
 				<ul class='list-group list-group-flush list-unstyled'>
 					<ul class="nav nav-tabs row" id="myTab" role="tablist">
 						<li class="nav-item col-md-6">
 							<a
-								class="nav-link active white"
+								class="nav-link active"
 								id="home-tab"
 								data-toggle="tab"
 								href="#home"
@@ -153,7 +151,7 @@ if (isConnected()) {
 						</li>
 						<li class="nav-item col-md-6">
 							<a
-								class="nav-link white"
+								class="nav-link"
 								id="profile-tab"
 								data-toggle="tab"
 								href="#profile"
@@ -171,13 +169,36 @@ if (isConnected()) {
 								aria-labelledby="home-tab"
 								>
 								<ul class='list-group list-group-flush list-unstyled'>
-									<li class='list-group-item'>- Joueur</li>
-									<li class='list-group-item'>- Joueur</li>
-									<li class='list-group-item'>- Joueur</li>
-									<li class='list-group-item'>- Joueur</li>
-									<li class='list-group-item'>- Joueur</li>
-									<li class='list-group-item'>- Joueur</li>
-									<li class='list-group-item'>- Joueur</li>
+									<li class='list-group-item'>
+										<div class="row font-weight-bold">
+											<div class="col text-left"><?php echo "Nom" ?></div>
+											<div class="col text-right"><?php echo "Points" ?></div>
+										</div>
+									</li>
+									<?php
+									$req = $db->prepare('SELECT name, point FROM player ORDER BY point DESC LIMIT 0, 7');
+									$req->execute();
+									$players = $req->fetchall();
+									$req->closeCursor();
+									if ($players) {
+										foreach ($players as $player) {
+											$name = htmlspecialchars($player['name']);
+											$point = htmlspecialchars($player['point']);
+											?>
+											<li class='list-group-item'>
+												<div class="row">
+													<div class="col-9 text-left"><?php echo "$name" ?></div>
+													<div class="col text-center"><?php echo "$point" ?></div>
+												</div>
+											</li>
+									<?php } 
+									} else { ?>
+										<li class='list-group-item'><?php echo "Aucun joueur" ?></li>
+								<?php } ?>
+									
+									
+
+								
 								</ul>
 							</div>
 						<div

@@ -53,7 +53,20 @@ if ($posts) { ?>
 
 <?php
 }
-?>
+if (isConnected()) { ?>
+<article>
+    <form action='script/s_post.php' method='post'>
+        <div class="form-group white">
+            <h3>Nouveau post</h3>
+            <label for="post_title" class="col-4 col-form-label">Titre*</label> 
+            <input id="post_title" name="post_title" placeholder="Titre" class="form-control here" required="required" type="text">
+            <label for="post_text" class="col-4 col-form-label">Contenu*</label> 
+            <textarea class="form-control" placeholder="Contenu de votre post" id="post_text" name="post_text" rows="3"></textarea>
+        </div>
+        <button class="btn btn-outline-light" type='submit' name='pid' value='<?php echo $post_id; ?>'>Écrire</button>
+    </form>
+</article>
+<?php } ?>
 
 </section>
 

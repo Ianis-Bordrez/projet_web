@@ -19,7 +19,8 @@ CREATE TABLE player (
     mp INT(11) NOT NULL,
     level INT(11) NOT NULL,
     gold INT(11) NOT NULL,
-    creation_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+    creation_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    point INT(11) NOT NULL DEFAULT 0
 );
 
 CREATE TABLE inventory (

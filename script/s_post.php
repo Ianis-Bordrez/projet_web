@@ -1,29 +1,24 @@
 <?php 
 require_once('config.php');
 
-// var_dump($GLOBALS);
 
-if(empty($_POST['answer']) || empty($_POST['pid'])){
+if(empty($_POST['post_title']) || empty($_POST['post_text'])){
     header('Location: ../forum.php');
     exit();
 }
 
 if (isConnected()) {
-    $answer = htmlspecialchars($_POST['answer']);
-    $pid = htmlspecialchars($_POST['pid']);
+    $title = htmlspecialchars($_POST['post_title']);
+    $answer = htmlspecialchars($_POST['post_text']);
 
-    $req = $db->prepare('INSERT INTO answer (post_id, account_id, content) VALUES (:pid, :account_id, :content)');
-    $req->bindParam('pid', $pid);
+    $req = $db->prepare('INSERT INTO post (account_id, title, content) VALUES (:account_id, :title, :content)');
     $req->bindParam('account_id', $_SESSION['account_id']);
+    $req->bindParam('title', $title);
     $req->bindParam('content', $answer);
     $req->execute();
 }
 
 
-if ($pid){
-    header("Location: ../post.php?pid=$pid");
-} else {
-    header("Location: ../forum.php");
-}
+header("Location: ../forum.php");
 exit();
 ?>

@@ -80,7 +80,7 @@ $req->closeCursor();
 
     ?>
     <article>
-        <div class='card darkblue-minus white'>
+        <div class='card darkblue'>
             <div class='card-body'>
                 <p><?php echo $content2; ?></p>
             </div>
@@ -98,12 +98,13 @@ $req->closeCursor();
     <?php
     if (isConnected()) { ?>
     <article>
-        <form action='script/s_post.php' method='post'>
+        <form action='script/s_answer.php' method='post'>
             <div class="form-group white">
-                <label for="answer">Poster votre réponse</label>
-                <textarea class="form-control" id="answer" name="answer" rows="3"></textarea>
+                <h3>Nouvelle réponse</h3>
+                <label for="answer" class="col-4 col-form-label">Contenu*</label> 
+                <textarea class="form-control" placeholder="Contenu de votre réponse" id="answer" name="answer" rows="3"></textarea>
             </div>
-            <button class="btn btn-outline-light" type='submit' name='pid' value='<?php echo $post_id; ?>'>Répondre</button>
+            <button class="btn btn-outline-light" type='submit' name='pid' value='<?php echo $post_id; ?>'>Écrire</button>
         </form>
     </article>
     <?php } ?>
