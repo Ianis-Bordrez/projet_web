@@ -14,11 +14,12 @@ a:active {
 .darkblue {
   background-color: #0f1642;
 }
+.darkblue-minus {
+  background-color: #141b46;
+}
+
 .purple {
   background-color: #9e94ff;
-}
-.white {
-  color: white;
 }
 
 .grey-hover:hover {
@@ -35,4 +36,15 @@ article {
 
 .aside-card {
   margin-bottom: 25px;
+}
+
+.white {
+  color: white !important;
+}
+.post {
+  margin-top: 500px;
+  margin-bottom: 500px;
+}
+.borderpost {
+  border-width: 10px;
 }

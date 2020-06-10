@@ -10,7 +10,6 @@ if (!isConnected()) {
     $username = htmlspecialchars($_POST['userName']);
     $password = htmlspecialchars($_POST['password']);
     $email = htmlspecialchars($_POST['email']);
-    $phone = htmlspecialchars($_POST['phone']);
 
     $req = $db->prepare('SELECT username FROM account WHERE username = :username');
     $req->bindParam('username', $username);
@@ -25,12 +24,11 @@ if (!isConnected()) {
 
     $pass_hash = password_hash($password, PASSWORD_DEFAULT);
 
-    $req = $db->prepare('INSERT INTO account (username, password, email, phone) VALUES (:username, :password, :email, :phone)');
+    $req = $db->prepare('INSERT INTO account (username, password, email) VALUES (:username, :password, :email)');
 
     $req->bindParam('username', $username);
     $req->bindParam('password', $pass_hash);
     $req->bindParam('email', $email);
-    $req->bindParam('phone', $phone);
 
     $req->execute();
 }
