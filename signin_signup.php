@@ -2,7 +2,7 @@
 require_once("header.php");
 ?>
 
-<div class="row mx-auto my-auto justify-content-between">
+<div class="row mx-auto my-auto justify-content-around">
     <div class="col-md-5 card darkblue">
         <div class="card-body">
             <div class="row">

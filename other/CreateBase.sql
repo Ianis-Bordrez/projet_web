@@ -47,6 +47,7 @@ CREATE TABLE post (
 
 CREATE TABLE answer (
     answer_id INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    post_id INT(11) NOT NULL REFERENCES posts(post_id),
     account_id INT(11) NOT NULL REFERENCES account(account_id),
     title VARCHAR(20) NOT NULL,
     content LONGTEXT NOT NULL,
