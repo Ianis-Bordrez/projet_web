@@ -95,7 +95,8 @@ if (isConnected()) {
 			$date = htmlspecialchars($new['creation_date_fr']);
 
 			$req = $db->prepare('SELECT username FROM account WHERE account_id=:account_id');
-			$req->execute(array('account_id' => $account_id));
+			$req->bindParam('account_id', $account_id);
+			$req->execute();
 			$username = $req->fetch()['username'];
 			$req->closeCursor();
 			?>

@@ -49,7 +49,7 @@ $start = $time;
                             <a href="account.php">Compte</a>
                         </li>
                         <li>
-                            <a href="create_char.php">Personnage</a>
+                            <a href="char.php">Personnage</a>
                         </li>
                     </ul>
                 </li>

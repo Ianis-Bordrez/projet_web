@@ -1,22 +1,3 @@
-CREATE TABLE `item`
-(
-`item_id` INT
-(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `name` varchar
-(20) NOT NULL,
-  `type` enum
-('WEAPON','ARMOR','OTHER') NOT NULL,
-  `sub_type` enum
-('SWORD','TWO_HAND','DAGGERS','BOW','BELL','FAN','BODY','HELMET','SHIELD','NECKLACE','EARRING','BOOTS','BRACELET','NONE') DEFAULT 'NONE',
-  `size` tinyint
-(2) NOT NULL,
-  `price` int
-(11) NOT NULL,
-  `level` int
-(11) NOT NULL
-);
-
-
 INSERT INTO `item` ( `item_id`, `name`, `type`, `sub_type`, `size`, `price`, `level` ) VALUES
 (1, 'Épée Calcite', 'WEAPON', 'SWORD', 2, 9805, 100),
 (2, 'Lance Calcite', 'WEAPON', 'TWO_HAND', 3, 2535, 100),

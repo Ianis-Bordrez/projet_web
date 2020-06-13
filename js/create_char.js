@@ -2,8 +2,8 @@ $(document).ready(function(){
     var gender = "male";
     var curr_char = 0;
     var base_path = "img/char/";
-    var char_m = ["char_m_0", "char_m_1", "char_m_2", "char_m_3"];
-    var char_w = ["char_w_0", "char_w_1", "char_w_2", "char_w_3"];
+    var char_m = ["char_m_ninja", "char_m_shaman", "char_m_sura", "char_m_warrior"];
+    var char_w = ["char_w_ninja", "char_w_shaman", "char_w_sura", "char_w_warrior"];
 
     $(document).on('click', '.next_char', function(){
         nextChar();
