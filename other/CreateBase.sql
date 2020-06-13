@@ -31,12 +31,14 @@ CREATE TABLE inventory (
     count SMALLINT(4) NOT NULL
 );
 
-CREATE TABLE item (
-    item_id INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(20) NOT NULL,
-    type ENUM('WEAPON', 'ARMOR', 'HELMET', 'SHIELD', 'NECKLACE', 'EARRING', 'BOOTS', 'BRACELET', 'OTHER') NOT NULL,
-    sub_type ENUM('SWORD','TWO_HAND', 'DAGGERS', 'BOW', 'BELL', 'FAN', 'NONE') DEFAULT 'NONE',
-    size TINYINT(2) NOT NULL
+CREATE TABLE `item` (
+`item_id` INT (11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`name` varchar (20) NOT NULL,
+`type` enum('WEAPON','ARMOR','OTHER') NOT NULL,
+`sub_type` enum('SWORD','TWO_HAND','DAGGERS','BOW','BELL','FAN','BODY','HELMET','SHIELD','NECKLACE','EARRING','BOOTS','BRACELET','NONE') DEFAULT 'NONE',
+`size` tinyint(2) NOT NULL,
+`price` int(11) NOT NULL,
+`level` int(11) NOT NULL
 );
 
 CREATE TABLE post (
@@ -68,7 +70,7 @@ CREATE TABLE private_message (
 CREATE TABLE news (
     new_id INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
     account_id INT(11) NOT NULL REFERENCES account(account_id),
-    title VARCHAR(20) NOT NULL,
+    title VARCHAR(40) NOT NULL,
     content LONGTEXT NOT NULL,
     creation_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
