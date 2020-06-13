@@ -4,7 +4,7 @@
 
 require_once('config.php');
 
-$req = $db->prepare(" SELECT * FROM account WHERE account_id != :account_id ");
+$req = $db->prepare("SELECT * FROM account WHERE account_id != :account_id ");
 $req->bindParam('account_id', $_SESSION['account_id']);
 $req->execute();
 $result = $req->fetchAll();

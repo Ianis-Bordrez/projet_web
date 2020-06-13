@@ -11,10 +11,10 @@ isNotConnectedRedirect();
 <script src="js/chat.js"></script>
 
 <div class="container">
-    <br />
+    <br/>
 
     <h3 align="center">Chat Application using PHP Ajax Jquery</a></h3><br />
-    <br />
+    <br/>
     
     <div class="table-responsive">
         <h4 align="center">Online User</h4>
@@ -22,8 +22,7 @@ isNotConnectedRedirect();
         <div id="user_details"></div>
         <div id="user_model_details"></div>
     </div>
-</div>        
-
+</div>
 
 <?php
 require_once('footer.php');

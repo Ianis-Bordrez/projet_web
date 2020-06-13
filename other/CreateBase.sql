@@ -16,10 +16,10 @@ CREATE TABLE player (
     name VARCHAR(20) NOT NULL,
     class ENUM('NINJA', 'SHAMAN', 'SURA', 'WARRIOR') NOT NULL,
     gender ENUM('MALE','FEMALE') NOT NULL,
-    hp INT(11) NOT NULL,
-    mp INT(11) NOT NULL,
-    level INT(11) NOT NULL,
-    gold INT(11) NOT NULL,
+    hp INT(11) NOT NULL DEFAULT 100,
+    mp INT(11) NOT NULL DEFAULT 100,
+    level INT(11) NOT NULL DEFAULT 1,
+    gold INT(11) NOT NULLDEFAULT 0,
     creation_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     point INT(11) NOT NULL DEFAULT 0
 );

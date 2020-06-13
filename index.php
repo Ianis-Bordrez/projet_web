@@ -195,10 +195,6 @@ if (isConnected()) {
 									} else { ?>
 										<li class='list-group-item'><?php echo "Aucun joueur" ?></li>
 								<?php } ?>
-									
-									
-
-								
 								</ul>
 							</div>
 						<div
