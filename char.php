@@ -29,9 +29,9 @@ if ($characters) {
 		$char_gender = $character["gender"];
 
 		if ($char_gender == "MALE") {
-			$char_img = "img/char/char_m_".$char_class.".png";
+			$char_img = "img/char/char_m_".strtolower($char_class).".png";
 		} else {
-			$char_img = "img/char/char_w_".$char_class.".png";
+			$char_img = "img/char/char_w_".strtolower($char_class).".png";
 		}
 		
 		?>

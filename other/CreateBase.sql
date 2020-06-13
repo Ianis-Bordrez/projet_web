@@ -5,9 +5,9 @@ CREATE TABLE account (
     description LONGTEXT,
     email VARCHAR(50) NOT NULL,
     phone VARCHAR(10) NULL,
-    creation_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    status ENUM('PLAYER','ADMIN') DEFAULT 'PLAYER',
-    last_activity timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+    creation_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    status ENUM('PLAYER','ADMIN') NOT NULL DEFAULT 'PLAYER',
+    last_activity TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE player (
@@ -19,8 +19,8 @@ CREATE TABLE player (
     hp INT(11) NOT NULL DEFAULT 100,
     mp INT(11) NOT NULL DEFAULT 100,
     level INT(11) NOT NULL DEFAULT 1,
-    gold INT(11) NOT NULLDEFAULT 0,
-    creation_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    gold INT(11) NOT NULL DEFAULT 0,
+    creation_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     point INT(11) NOT NULL DEFAULT 0
 );
 
@@ -46,7 +46,7 @@ CREATE TABLE post (
     account_id INT(11) NOT NULL REFERENCES account(account_id),
     title VARCHAR(20) NOT NULL,
     content LONGTEXT NOT NULL,
-    creation_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+    creation_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE answer (
@@ -55,7 +55,7 @@ CREATE TABLE answer (
     account_id INT(11) NOT NULL REFERENCES account(account_id),
     title VARCHAR(20) NOT NULL,
     content LONGTEXT NOT NULL,
-    creation_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+    creation_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE private_message (
@@ -64,7 +64,7 @@ CREATE TABLE private_message (
     receiver_id INT(11) NOT NULL REFERENCES account(account_id),
     message LONGTEXT NOT NULL,
     status TINYINT(1) NOT NULL DEFAULT 0,
-    message_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+    message_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE news (
@@ -72,5 +72,5 @@ CREATE TABLE news (
     account_id INT(11) NOT NULL REFERENCES account(account_id),
     title VARCHAR(40) NOT NULL,
     content LONGTEXT NOT NULL,
-    creation_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+    creation_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
