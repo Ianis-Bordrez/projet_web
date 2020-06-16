@@ -2,17 +2,17 @@
 require_once("header.php");
 
 
-$req = $db->prepare('SELECT sum(account_id) as "Number of users" FROM account');
+$req = $db->prepare('SELECT sum(account_id) AS "NumberOfUsers" FROM account');
 $req->execute();
-$nb_accounts = $req->fetch()["Number of users"];
+$nb_accounts = $req->fetch()["NumberOfUsers"];
 if (!$nb_accounts){
 	$nb_accounts = 0;
 }
 $req->closeCursor();
 
-$req = $db->prepare('SELECT sum(player_id) as "Number of players" FROM player');
+$req = $db->prepare('SELECT sum(player_id) AS "NumberOfPlayers" FROM player');
 $req->execute();
-$nb_players = $req->fetch()["Number of players"];
+$nb_players = $req->fetch()["NumberOfPlayers"];
 if (!$nb_players){
 	$nb_players = 0;
 }
@@ -100,7 +100,7 @@ if (isConnected()) {
 <div class='row mx-auto my-auto sub-sontent'> <!-- Sub-Content -->
 	<section class='col-9'>
 		<?php
-		$req = $db->prepare('SELECT title, account_id, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS creation_date_fr FROM news ORDER BY creation_date DESC LIMIT 0, 5');
+		$req = $db->prepare('SELECT title, account_id, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS "CreationDateFr" FROM news ORDER BY creation_date DESC LIMIT 0, 5');
 		$req->execute();
 		$news = $req->fetchall();
 		$req->closeCursor();
@@ -108,7 +108,7 @@ if (isConnected()) {
 			$title = htmlspecialchars($new['title']);
 			$account_id = htmlspecialchars($new['account_id']);
 			$content = nl2br(htmlspecialchars($new['content']));
-			$date = htmlspecialchars($new['creation_date_fr']);
+			$date = htmlspecialchars($new['CreationDateFr']);
 
 			$req = $db->prepare('SELECT username FROM account WHERE account_id=:account_id');
 			$req->bindParam('account_id', $account_id);

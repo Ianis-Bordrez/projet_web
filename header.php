@@ -57,7 +57,7 @@ $start = $time;
                     <a href="chat.php">Chat</a>
                 </li>
                 <li>
-                    <a href="#">Wiki</a>
+                    <a href="wiki.php">Wiki</a>
                 </li>
                 <li>
                     <a href="forum.php">Forum</a>

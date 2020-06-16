@@ -11,7 +11,7 @@ if (isset($_GET["pid"])){
     // redirect("forum.php");
 }
 
-$req = $db->prepare('SELECT post_id, account_id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS creation_date_fr FROM post WHERE post_id = :pid');
+$req = $db->prepare('SELECT post_id, account_id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS "CreationDateFr" FROM post WHERE post_id = :pid');
 $req->bindParam('pid', $pid);
 $req->execute();
 $post = $req->fetch();
@@ -25,7 +25,7 @@ $post_id = htmlspecialchars($post["post_id"]);
 $account_id = htmlspecialchars($post["account_id"]);
 $title = htmlspecialchars($post["title"]);
 $content = nl2br(htmlspecialchars($post["content"]));
-$creation_date = htmlspecialchars($post["creation_date_fr"]);
+$creation_date = htmlspecialchars($post["CreationDateFr"]);
 
 $req = $db->prepare('SELECT username FROM account WHERE account_id = :account_id');
 $req->bindParam('account_id', $account_id);
@@ -61,7 +61,7 @@ $req->closeCursor();
 
     <?php
 
-    $req = $db->prepare('SELECT account_id, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS creation_date_fr FROM answer WHERE post_id = :post_id');
+    $req = $db->prepare('SELECT account_id, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS "CreationDateFr" FROM answer WHERE post_id = :post_id');
     $req->bindParam('post_id', $post_id);
     $req->execute();
     $answers = $req->fetchAll();
@@ -70,7 +70,7 @@ $req->closeCursor();
     foreach($answers as $answer) {
         $account_id2 = htmlspecialchars($answer["account_id"]);
         $content2 = nl2br(htmlspecialchars($answer["content"]));
-        $creation_date2 = htmlspecialchars($answer["creation_date_fr"]);
+        $creation_date2 = htmlspecialchars($answer["CreationDateFr"]);
 
         $req = $db->prepare('SELECT username FROM account WHERE account_id = :account_id');
         $req->bindParam('account_id', $account_id2);
