@@ -2,8 +2,9 @@
 require_once('config.php');
 
 if (!isConnected()) {
+    $username = htmlspecialchars($_POST['userName']);
     $req = $db->prepare('SELECT account_id, username, password, status FROM account WHERE username = :username');
-    $req->bindParam('username', htmlspecialchars($_POST['userName']));
+    $req->bindParam('username', $username);
     $req->execute();
     $acc_info = $req->fetch();
 
