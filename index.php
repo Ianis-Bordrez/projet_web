@@ -24,7 +24,7 @@ $accounts = $req->fetchAll();
 $req->closeCursor();
 
 $online_account = 0;
-var_dump($accounts);
+
 foreach($accounts as $account) {
 	$current_timestamp = strtotime(date("Y-m-d H:i:s") . '- 15 second');
 	$current_timestamp = date('Y-m-d H:i:s', $current_timestamp);

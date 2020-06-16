@@ -7,6 +7,15 @@
 
     <script src="js/online_account.js"></script>
 
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+                $(this).toggleClass('active');
+            });
+        });
+    </script>
+
 </body>
 
 <footer>
