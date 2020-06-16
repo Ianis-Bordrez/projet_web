@@ -16,7 +16,7 @@ if (isset($_POST["submit"])) {
     }
 
     if(!empty($_POST["levelMin"])) {
-        $conditions[] = "level <= ".$_POST['levelMin'];
+        $conditions[] = "level >= ".$_POST['levelMin'];
     }
 
     if(!empty($_POST["levelMax"])) {
