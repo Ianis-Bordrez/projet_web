@@ -7,7 +7,6 @@ require_once("header.php");
     
     <div id = "character">
 
-
         <div class='card darkblue white'>
             <h5 class='card-header'>Créez votre personnage</h5>
             <div class='card-body'>

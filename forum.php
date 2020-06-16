@@ -39,10 +39,22 @@ if ($posts) { ?>
                     </form>
                 </div>
                 <div class='card-footer text-muted'>
-                    <blockquote class='blockquote mb-0'>
-                    <footer class='blockquote-footer'><cite title='Source Title'><?php echo $username; ?></cite></footer>
-                    </blockquote>
-                    <?php echo $creation_date; ?>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <blockquote class='blockquote mb-0'>
+                            <footer class='blockquote-footer'><cite title='Source Title'><?php echo $username; ?></cite></footer>
+                            </blockquote>
+                            <?php echo $creation_date; ?>
+                        </div>
+                        <div class="col-md-2">
+                            <?php
+                            if($_SESSION["account_id"] == $account_id || $_SESSION["status"] == "ADMIN") { ?>
+                                <form action="script/s_delete_post.php" method="post">
+                                    <button class="btn btn-primary" type="submit" name="pid" value="<?php echo $post_id; ?>">Supprimer</button>
+                                </form>
+                        <?php } ?>
+                        </div>
+                    </div>
                 </div>
             </div>
         </article>
@@ -50,7 +62,6 @@ if ($posts) { ?>
     }
 
 } else { ?>
-
 <?php
 }
 if (isConnected()) { ?>
@@ -63,7 +74,7 @@ if (isConnected()) { ?>
             <label for="post_text" class="col-4 col-form-label">Contenu*</label> 
             <textarea class="form-control" placeholder="Contenu de votre post" id="post_text" name="post_text" rows="3"></textarea>
         </div>
-        <button class="btn btn-outline-light" type='submit' name='pid' value='<?php echo $post_id; ?>'>Écrire</button>
+        <button class="btn btn-outline-light" type='submit' name='pid'>Écrire</button>
     </form>
 </article>
 <?php } ?>

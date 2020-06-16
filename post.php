@@ -8,7 +8,7 @@ if (isset($_GET["pid"])){
 } else if (isset($_POST["pid"])) {
     $pid = $_POST["pid"];
 } else {
-    // redirect("forum.php");
+    redirect("forum.php");
 }
 
 $req = $db->prepare('SELECT post_id, account_id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS "CreationDateFr" FROM post WHERE post_id = :pid');
@@ -37,10 +37,22 @@ $req->closeCursor();
 
 <section>
     <article>
-        <div class='card darkblue'>
-            <div class='card-header'>
-                <h2 class='text-uppercase white font-weight-bold'><?php echo $title; ?></h2>
-                <footer class='blockquote-footer'><?php echo "Écrit par $username le $creation_date"; ?> </footer>
+        <div class='card darkblue white borderpost'>
+            <div class='card-footer text-muted'>
+                <div class="row">
+                    <div class="col-md-10">
+                        <h2 class='text-uppercase white font-weight-bold'><?php echo $title; ?></h2>
+                        <footer class='blockquote-footer'><?php echo "Écrit par $username le $creation_date"; ?> </footer>
+                    </div>
+                    <div class="col-md-2">
+                        <?php
+                        if($_SESSION["account_id"] == $account_id || $_SESSION["status"] == "ADMIN") { ?>
+                        <form action="script/s_delete_post.php" method="post">
+                            <button class="btn btn-primary" type="submit" name="pid" value="<?php echo $post_id; ?>">Supprimer</button>
+                        </form>
+                    <?php } ?>
+                    </div>
+                </div>
             </div>
         </div>
     </article>
