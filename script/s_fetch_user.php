@@ -26,7 +26,7 @@ foreach($results as $result) {
     $current_timestamp = strtotime(date("Y-m-d H:i:s") . '- 15 second');
     $current_timestamp = date('Y-m-d H:i:s', $current_timestamp);
 
-    if($account["last_activity"] > $current_timestamp) {
+    if($result["last_activity"] > $current_timestamp) {
         $status = '<span class="bg-success">Online</span>';
     }
     else {
