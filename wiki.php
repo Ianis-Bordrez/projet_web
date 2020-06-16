@@ -44,8 +44,6 @@ if (isset($_POST["submit"])) {
     }
 
 }
-echo $query;
-
 
 $req = $db->prepare($query);
 $req->execute();
@@ -56,82 +54,111 @@ $req->closeCursor();
 
 <script src="js/wiki.js"></script>
 
-<div class="card darkblue" style="width: 18rem;">
-  <div class="card-body">
-    <form action="wiki.php" method="post" class="form-example">
-        <h5 class="card-title white">Filtres</h5>
-        <p class="card-text white">Prix</p>
-        <div class="input-group input-group-sm mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-sm">Min</span>
+
+<section>
+    <div class="row">
+        <div class="col-md-2 card darkblue" style="width: 18rem;">
+            <div class="card-body">
+                <form action="wiki.php" method="post" class="form-example">
+                    <h5 class="card-title white">Filtres</h5>
+                    <p class="card-text white">Prix</p>
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Min</span>
+                        </div>
+                        <input name="PriceMin" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Max</span>
+                        </div>
+                        <input name="PriceMax" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                    <p class="card-text white">Niveaux</p>
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Min</span>
+                        </div>
+                        <input name="levelMin" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Max</span>
+                        </div>
+                        <input name="levelMax" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                    <p class="card-text white">Classes</p>
+                    <div class="form-check form-check-inline">
+                        <input name="check_box_class[]" class="form-check-input" type="checkbox" value="WARRIOR" id="checkWarrior">
+                        <label class="form-check-label white" for="checkWarrior">
+                            Guerrier
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input name="check_box_class[]" class="form-check-input" type="checkbox" value="NINJA" id="checkNinja">
+                        <label class="form-check-label white" for="checkNinja">
+                            Ninja
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input name="check_box_class[]" class="form-check-input" type="checkbox" value="SHAMAN" id="checkShaman">
+                        <label class="form-check-label white" for="checkShaman">
+                            Chamane
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input name="check_box_class[]" class="form-check-input" type="checkbox" value="SURA" id="checkSura">
+                        <label class="form-check-label white" for="checkSura">
+                            Sura
+                        </label>
+                    </div>
+                    <button type="submit" name="submit" lass="btn btn-sm">Rechercher</button>
+                </form>
             </div>
-            <input name="PriceMin" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
         </div>
-        <div class="input-group input-group-sm mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-sm">Max</span>
+        <div class="col-md-10">
+            <input type="text" class="form-control text-center" id="search_bar" onkeyup="search_bar()" placeholder="Rechercher un objet..">
+            <div class="row mx-auto my-auto items">
+                <?php
+                foreach($items as $item){
+                    $item_name = $item["name"];
+                    $item_price = $item["price"];
+                    $item_level = $item["level"];
+                    ?>
+                    <div class="item card col darkblue" style="margin:20px; min-width: 12rem;">
+                        <div class="card-body">
+                            <h5 class="card-title white"><?php echo $item_name ?></h5>
+                            <ul class='list-group list-group-flush list-unstyled'>
+                                <li class='list-group-item lightblue white'>Prix : <?php echo $item_price ?></li>
+                                <li class='list-group-item lightblue white'>Niveaux : <?php echo $item_level ?></li>
+                            </ul>
+                        </div>
+                    </div>
+            <?php } ?>
             </div>
-            <input name="PriceMax" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
         </div>
-        <p class="card-text white">Niveaux</p>
-        <div class="input-group input-group-sm mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-sm">Min</span>
-            </div>
-            <input name="levelMin" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-        </div>
-        <div class="input-group input-group-sm mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-sm">Max</span>
-            </div>
-            <input name="levelMax" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-        </div>
-        <p class="card-text white">Classes</p>
-        <div class="form-check form-check-inline">
-            <input name="check_box_class[]" class="form-check-input" type="checkbox" value="WARRIOR" id="checkWarrior">
-            <label class="form-check-label white" for="checkWarrior">
-                Guerrier
-            </label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input name="check_box_class[]" class="form-check-input" type="checkbox" value="NINJA" id="checkNinja">
-            <label class="form-check-label white" for="checkNinja">
-                Ninja
-            </label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input name="check_box_class[]" class="form-check-input" type="checkbox" value="SHAMAN" id="checkShaman">
-            <label class="form-check-label white" for="checkShaman">
-                Chamane
-            </label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input name="check_box_class[]" class="form-check-input" type="checkbox" value="SURA" id="checkSura">
-            <label class="form-check-label white" for="checkSura">
-                Sura
-            </label>
-        </div>
-        <button type="submit" name="submit" lass="btn btn-sm">Rechercher</button>
-    </form>
-  </div>
-</div>
+    </div>
+</section>
 
 
-
-<?php
-
-
-foreach($items as $item){
-    $item_name = $item["name"];
-
-    ?>
-    <div class="white"> <?php echo $item_name ?></div>
-
-    <?php
+<script>
+function search_bar() {
+    var input, filter, items, item, i, txtValue;
+    input = document.getElementById("search_bar");
+    filter = input.value.toUpperCase();
+    items = document.getElementById("items");
+    item = document.getElementsByClassName("item");
+    for (i = 0; i < item.length; i++) {
+        text = item[i].getElementsByTagName("h5")[0];
+        txtValue = text.textContent || text.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            item[i].style.display = "";
+        } else {
+            item[i].style.display = "none";
+        }
+    }
 }
-
-?>
-
+</script>
 
 
 <?php
