@@ -29,22 +29,6 @@ if (isset($_POST["submit"])) {
         }
 
     }
-
-    if(!empty($_POST["checkWarrior"])) {
-        $conditions[] = "class LIKE 'WARRIOR'";
-    }
-
-    if(!empty($_POST["checkNinja"])) {
-        $conditions[] = "class LIKE 'NINJA'";
-    }
-
-    if(!empty($_POST["checkChamane"])) {
-        $conditions[] = "class LIKE 'SHAMAN'";
-    }
-
-    if(!empty($_POST["checkSura"])) {
-        $conditions[] = "class LIKE 'SURA'";
-    }
     
     if (count($conditions) > 0) {
         $query .= " WHERE " . implode(' AND ', $conditions);
