@@ -18,7 +18,6 @@ isNotConnectedRedirect();
     
     <div class="table-responsive">
         <h4 align="center">Online User</h4>
-        <p align="right">Hi - <?php echo $_SESSION['username']; ?> - <a href="script/s_signout.php">Logout</a></p>
         <div id="user_details"></div>
         <div id="user_model_details"></div>
     </div>
