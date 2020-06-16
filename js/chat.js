@@ -27,11 +27,6 @@ $(document).ready(function(){
         $('#user_model_details').html(modal_content);
     }
 
-    function scrollToBottom(id){
-        var div = document.getElementById(id);
-        div.scrollTop = div.scrollHeight - div.clientHeight;
-    }
-
     $(document).on('click', '.start_chat', function(){
         var receiver_id = $(this).data('receiverid');
         var receiver_username = $(this).data('receiverusername');
