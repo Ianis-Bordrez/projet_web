@@ -27,7 +27,6 @@ if (isset($_POST["submit"])) {
         foreach($_POST["check_box_class"] as $check_class) {
             $conditions2[] = "class LIKE '%".$check_class."%'";
         }
-
     }
     
     if (count($conditions) > 0) {

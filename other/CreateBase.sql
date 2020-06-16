@@ -36,7 +36,7 @@ CREATE TABLE `item` (
 `name` varchar (20) NOT NULL,
 `type` enum('WEAPON','ARMOR','OTHER') NOT NULL,
 `sub_type` enum('SWORD','TWO_HAND','DAGGERS','BOW','BELL','FAN','BODY','HELMET','SHIELD','NECKLACE','EARRING','BOOTS','BRACELET','NONE') DEFAULT 'NONE',
-`class` SET('NINJA','SHAMAN','SURA', 'WARRIOR')
+`class` SET('NINJA','SHAMAN','SURA', 'WARRIOR'),
 `size` tinyint(2) NOT NULL,
 `price` int(11) NOT NULL,
 `level` int(11) NOT NULL
