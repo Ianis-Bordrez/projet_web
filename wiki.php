@@ -5,7 +5,8 @@ $query = "SELECT * FROM item";
 
 if (isset($_POST["submit"])) {
     $conditions = array();
-
+    $conditions2 = array();
+    
     if(!empty($_POST["PriceMin"])) {
       $conditions[] = "price >= ".$_POST['PriceMin'];
     }
@@ -14,41 +15,59 @@ if (isset($_POST["submit"])) {
         $conditions[] = "price <= ".$_POST['PriceMax'];
     }
 
-    if(!empty($_POST["NiveauMin"])) {
-        $conditions[] = "price <= ".$_POST['NiveauMin'];
+    if(!empty($_POST["levelMin"])) {
+        $conditions[] = "level <= ".$_POST['levelMin'];
     }
 
-    if(!empty($_POST["NiveauMax"])) {
-        $conditions[] = "price <= ".$_POST['NiveauMax'];
+    if(!empty($_POST["levelMax"])) {
+        $conditions[] = "level <= ".$_POST['levelMax'];
     }
 
-    if(!isset($_POST["checkWarrior"])) {
-        $conditions[] = "class == Warrior";
+    if (!empty($_POST["check_box_class"])) {
+        foreach($_POST["check_box_class"] as $check_class) {
+            $conditions2[] = "class LIKE '%".$check_class."%'";
+        }
+
     }
 
-    if(!isset($_POST["checkNinja"])) {
-        $conditions[] = "class == Ninja";
+    if(!empty($_POST["checkWarrior"])) {
+        $conditions[] = "class LIKE 'WARRIOR'";
     }
 
-    if(!isset($_POST["checkChamane"])) {
-        $conditions[] = "class == Chamane";
+    if(!empty($_POST["checkNinja"])) {
+        $conditions[] = "class LIKE 'NINJA'";
     }
 
-    if(!isset($_POST["checkSura"])) {
-        $conditions[] = "class == Sura";
+    if(!empty($_POST["checkChamane"])) {
+        $conditions[] = "class LIKE 'SHAMAN'";
     }
 
+    if(!empty($_POST["checkSura"])) {
+        $conditions[] = "class LIKE 'SURA'";
+    }
+    
     if (count($conditions) > 0) {
         $query .= " WHERE " . implode(' AND ', $conditions);
     }
 
+    if (count($conditions2) > 0) {
+        if (!strpos($query, "WHERE")) {
+            $query .= " WHERE ";
+        } else {
+            $query .= " AND ";
+        }
+
+        $query .=  implode(' OR ', $conditions2);
+    }
+
 }
+echo $query;
+
 
 $req = $db->prepare($query);
 $req->execute();
 $items = $req->fetchAll();
 $req->closeCursor();
-
 
 ?>
 
@@ -76,36 +95,36 @@ $req->closeCursor();
             <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-sm">Min</span>
             </div>
-            <input name="NiveauMin" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+            <input name="levelMin" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
         </div>
         <div class="input-group input-group-sm mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-sm">Max</span>
             </div>
-            <input name="NiveauMax" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+            <input name="levelMax" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
         </div>
         <p class="card-text white">Classes</p>
         <div class="form-check form-check-inline">
-            <input name="checkWarrior" class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label white" for="defaultCheck1">
+            <input name="check_box_class[]" class="form-check-input" type="checkbox" value="WARRIOR" id="checkWarrior">
+            <label class="form-check-label white" for="checkWarrior">
                 Guerrier
             </label>
         </div>
         <div class="form-check form-check-inline">
-            <input name="checkNinja" class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-            <label class="form-check-label white" for="defaultCheck2">
+            <input name="check_box_class[]" class="form-check-input" type="checkbox" value="NINJA" id="checkNinja">
+            <label class="form-check-label white" for="checkNinja">
                 Ninja
             </label>
         </div>
         <div class="form-check form-check-inline">
-            <input name="checkChamane" class="form-check-input" type="checkbox" value="" id="defaultCheck3">
-            <label class="form-check-label white" for="defaultCheck3">
+            <input name="check_box_class[]" class="form-check-input" type="checkbox" value="SHAMAN" id="checkShaman">
+            <label class="form-check-label white" for="checkShaman">
                 Chamane
             </label>
         </div>
         <div class="form-check form-check-inline">
-            <input name="checkSura" class="form-check-input" type="checkbox" value="" id="defaultCheck4">
-            <label class="form-check-label white" for="defaultCheck4">
+            <input name="check_box_class[]" class="form-check-input" type="checkbox" value="SURA" id="checkSura">
+            <label class="form-check-label white" for="checkSura">
                 Sura
             </label>
         </div>
