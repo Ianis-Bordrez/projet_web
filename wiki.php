@@ -7,11 +7,11 @@ if (isset($_POST["submit"])) {
     $conditions = array();
 
     if(!empty($_POST["PriceMin"])) {
-      $conditions[] = "price >= ".$_POST['PriceMin'];
+      $conditions[] = "price >= " . $_POST['PriceMin'];
     }
     if(!empty($_POST["PriceMax"])) {
-        $conditions[] = "price <= ".$_POST['PriceMax'];
-      }
+        $conditions[] = "price <= " . $_POST['PriceMax'];
+    }
 
     if (count($conditions) > 0) {
       $query .= " WHERE " . implode(' AND ', $conditions);
@@ -104,20 +104,6 @@ foreach($items as $item){
 }
 
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

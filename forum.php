@@ -2,7 +2,7 @@
 require_once("header.php");
 
 
-$req = $db->prepare('SELECT post_id, account_id, title, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS creation_date_fr FROM post ORDER BY creation_date DESC LIMIT 0, 5');
+$req = $db->prepare('SELECT post_id, account_id, title, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS "CreationDateFr" FROM post ORDER BY creation_date DESC LIMIT 0, 5');
 $req->execute();
 $posts = $req->fetchall();
 $req->closeCursor();
@@ -18,7 +18,7 @@ if ($posts) { ?>
         $post_id = htmlspecialchars($post["post_id"]);
         $account_id = htmlspecialchars($post["account_id"]);
         $title = htmlspecialchars($post["title"]);
-        $creation_date = htmlspecialchars($post["creation_date_fr"]);
+        $creation_date = htmlspecialchars($post["CreationDateFr"]);
 
         $req = $db->prepare('SELECT username FROM account WHERE account_id = :account_id');
         $req->bindParam('account_id', $account_id);

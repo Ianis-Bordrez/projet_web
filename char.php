@@ -4,10 +4,10 @@ require_once('header.php');
 isNotConnectedRedirect();
 
 
-$req = $db->prepare('SELECT SUM(account_id) AS "number_of_player" FROM player WHERE account_id=:account_id');
+$req = $db->prepare('SELECT SUM(account_id) AS "NumberOfPlayers" FROM player WHERE account_id=:account_id');
 $req->bindParam('account_id', $_SESSION['account_id']);
 $req->execute();
-$nb_char = $req->fetch()["number_of_player"];
+$nb_char = $req->fetch()["NumberOfPlayers"];
 $req->closeCursor();
 
 $req = $db->prepare('SELECT account_id, name, level, class, gender, hp, mp, gold FROM player WHERE account_id=:account_id');
