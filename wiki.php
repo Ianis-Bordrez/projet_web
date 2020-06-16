@@ -7,14 +7,39 @@ if (isset($_POST["submit"])) {
     $conditions = array();
 
     if(!empty($_POST["PriceMin"])) {
-      $conditions[] = "price >= ".$_POST['PriceMin'];
+        $conditions[] = "price >= ".$_POST['PriceMin'];
     }
+
     if(!empty($_POST["PriceMax"])) {
         $conditions[] = "price <= ".$_POST['PriceMax'];
-      }
+    }
+
+    if(!empty($_POST["NiveauMin"])) {
+        $conditions[] = "price <= ".$_POST['NiveauMin'];
+    }
+
+    if(!empty($_POST["NiveauMax"])) {
+        $conditions[] = "price <= ".$_POST['NiveauMax'];
+    }
+
+    if(!isset($_POST["checkWarrior"])) {
+        $conditions[] = "class == Warrior";
+    }
+
+    if(!isset($_POST["checkNinja"])) {
+        $conditions[] = "class == Ninja";
+    }
+
+    if(!isset($_POST["checkChamane"])) {
+        $conditions[] = "class == Chamane";
+    }
+
+    if(!isset($_POST["checkSura"])) {
+        $conditions[] = "class == Sura";
+    }
 
     if (count($conditions) > 0) {
-      $query .= " WHERE " . implode(' AND ', $conditions);
+        $query .= " WHERE " . implode(' AND ', $conditions);
     }
 
 }
@@ -79,7 +104,7 @@ $req->closeCursor();
             </label>
         </div>
         <div class="form-check form-check-inline">
-            <input name="checkSure" class="form-check-input" type="checkbox" value="" id="defaultCheck4">
+            <input name="checkSura" class="form-check-input" type="checkbox" value="" id="defaultCheck4">
             <label class="form-check-label white" for="defaultCheck4">
                 Sura
             </label>
