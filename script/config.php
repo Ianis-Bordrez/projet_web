@@ -61,7 +61,7 @@ function fetch_user_last_activity($user_id, $db) {
     $req->execute(array("account_id"=> $user_id));
     $result = $req->fetchAll();
     foreach($result as $row) {
-    return $row['last_activity'];
+        return $row['last_activity'];
     }
 }
 

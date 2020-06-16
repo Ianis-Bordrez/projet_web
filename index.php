@@ -17,6 +17,22 @@ if (!$nb_players){
 	$nb_players = 0;
 }
 $req->closeCursor();
+
+$req = $db->prepare('SELECT account_id, last_activity FROM account');
+$req->execute();
+$accounts = $req->fetchAll();
+$req->closeCursor();
+
+$online_account = 0;
+var_dump($accounts);
+foreach($accounts as $account) {
+	$current_timestamp = strtotime(date("Y-m-d H:i:s") . '- 15 second');
+	$current_timestamp = date('Y-m-d H:i:s', $current_timestamp);
+	if($account["last_activity"] > $current_timestamp) {
+        $online_account++;
+    }
+}
+
 ?>
 
 
@@ -126,7 +142,7 @@ if (isConnected()) {
 			</div>
 			<div class='card-body'>
 				<ul class='list-group list-group-flush list-unstyled'>
-					<li class='list-group-item'>Comptes connectés : <?php echo ""; ?></li>
+					<li class='list-group-item'>Comptes connectés : <?php echo $online_account; ?></li>
 					<li class='list-group-item'>Comptes créés : <?php echo $nb_accounts; ?></li>
 					<li class='list-group-item'>Joueurs créés : <?php echo $nb_players; ?></li>
 				</ul>
@@ -219,9 +235,7 @@ if (isConnected()) {
 			</div>
 		</div>
 	</aside>
-
 </div> <!-- Sub-Content -->
-
 <?php
 require_once("footer.php");
 ?>

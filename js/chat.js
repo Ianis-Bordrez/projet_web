@@ -1,7 +1,6 @@
 $(document).ready(function(){
     fetch_user();
     setInterval(function(){
-        update_last_activity();
         fetch_user();
         update_chat_history_data();
     }, 5000);
@@ -14,14 +13,6 @@ $(document).ready(function(){
             $('#user_details').html(data);
         }
         });
-    }
-
-    function update_last_activity() {
-        $.ajax({
-            url:"script/s_update_last_activity.php",
-            success:function() {
-            }
-        })
     }
 
     function make_chat_dialog_box(receiver_id, receiver_username) {

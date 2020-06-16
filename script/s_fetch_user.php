@@ -7,7 +7,7 @@ require_once('config.php');
 $req = $db->prepare("SELECT * FROM account WHERE account_id != :account_id ");
 $req->bindParam('account_id', $_SESSION['account_id']);
 $req->execute();
-$result = $req->fetchAll();
+$results = $req->fetchAll();
 
 $output = '
 <table class="table table-dark">
@@ -21,11 +21,11 @@ $output = '
   <tbody>
 ';
 
-foreach($result as $row) {
+foreach($results as $result) {
     $status = '';
-    $current_timestamp = strtotime(date("Y-m-d H:i:s") . '- 10 second');
+    $current_timestamp = strtotime(date("Y-m-d H:i:s") . '- 15 second');
     $current_timestamp = date('Y-m-d H:i:s', $current_timestamp);
-    $user_last_activity = fetch_user_last_activity($row['account_id'], $db);
+    $user_last_activity = fetch_user_last_activity($result['account_id'], $db);
 
     if($user_last_activity > $current_timestamp) {
         $status = '<span class="bg-success">Online</span>';
@@ -36,9 +36,9 @@ foreach($result as $row) {
 
     $output .= '
     <tr>
-      <td>'.$row['username'].'</td>
+      <td>'.$result['username'].'</td>
       <td>'.$status.'</td>
-      <td><button type="button" class="btn btn-info btn-xs start_chat purple" data-receiverid="'.$row['account_id'].'" data-receiverusername="'.$row['username'].'">Start Chat</button></td>
+      <td><button type="button" class="btn btn-info btn-xs start_chat purple" data-receiverid="'.$result['account_id'].'" data-receiverusername="'.$result['username'].'">Start Chat</button></td>
     </tr>
     ';
 }
