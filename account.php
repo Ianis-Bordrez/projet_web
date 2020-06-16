@@ -16,26 +16,51 @@ $acc_info = $req->fetch();
         <div class='card-body'>
             <div class='row'>
                 <div class='col'>
-                    <h5 class='card-title'>Nom d'utilisateur</h5>
-                    <p class='card-text'> <?php echo $acc_info['username']?> </p>
+                    <?php if (isset($acc_info['username'])) {
+                        ?>
+                        <h5 class='card-title'>Nom d'utilisateur</h5>
+                        <p class='card-text'> <?php echo $acc_info['username']?> </p>
+                        <?php
+                    }
+                    ?>
                 </div>
                 <div class='col'>
-                    <h5 class='card-title'>Email</h5>
-                    <p class='card-text'> <?php echo $acc_info['email']?> </p>
+                    <?php if (isset($acc_info['email'])) {
+                        ?>
+                        <h5 class='card-title'>Email</h5>
+                        <p class='card-text'> <?php echo $acc_info['email']?> </p>
+                        <?php
+                    }
+                    ?>
                 </div>
                 <div class='col'>
-                    <h5 class='card-title'>Phone</h5>
-                    <p class='card-text'> <?php echo $acc_info['phone']?> </p>
+                    <?php if (isset($acc_info['phone'])) {
+                        ?>
+                        <h5 class='card-title'>Téléphone</h5>
+                        <p class='card-text'> <?php echo $acc_info['phone']?> </p>
+                        <?php
+                    }
+                    ?>
                 </div>
                 <div class='col'>
-                    <h5 class='card-title'>Date de création</h5>
-                    <p class='card-text'> <?php echo $acc_info['creation_date']?> </p>
+                    <?php if (isset($acc_info['creation_date'])) {
+                        ?>
+                        <h5 class='card-title'>Date de création</h5>
+                        <p class='card-text'> <?php echo $acc_info['creation_date']?> </p>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
             <div class="row">
                 <div class='col mt-10'>
-                    <h5 class='card-title'>Description</h5>
-                    <p class='card-text'><?php echo $acc_info['description']?> </p>
+                    <?php if (isset($acc_info['description'])) {
+                        ?>
+                        <h5 class='card-title'>Description</h5>
+                        <p class='card-text'><?php echo $acc_info['description']?> </p>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
             <div class="row">
