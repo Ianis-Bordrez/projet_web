@@ -9,20 +9,32 @@ a:active {
 
 
 
-.lightblue {
+.bg-lightblue {
   background-color: #2b3253;
 }
 
-.darkblue {
+.bg-darkblue {
   background-color: #0f1642;
 }
 
-.purple {
+.bg-purple {
   background-color: #9e94ff;
 }
 
+.bg-lightlightblue {
+  background-color: #6d7fcc;
+}
+
 .grey-hover:hover {
-  color: gray !important;
+  color: grey !important;
+}
+
+.bg-hover-purple:hover {
+  background-color: #9e94ff;
+}
+
+input:focus, textarea:focus{
+  background-color: #6d7fcc !important;
 }
 
 .sub-sontent {
@@ -37,9 +49,13 @@ article {
   margin-bottom: 25px;
 }
 
-.white {
+.txt-white {
   color: white !important;
 }
+.txt-grey {
+  color: grey !important;
+}
+
 .post {
   margin-top: 500px;
   margin-bottom: 500px;

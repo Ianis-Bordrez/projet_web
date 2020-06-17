@@ -8,11 +8,7 @@ $(document).ready(function(){
         $.ajax({
             url:"script/s_update_last_activity.php",
             success:function() {
-                console.log("oh !");
-            },
-            error:function() {
-                console.log("hey");
-            }    
+            },  
         })
     }
 });

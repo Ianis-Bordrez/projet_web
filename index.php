@@ -33,6 +33,16 @@ foreach($accounts as $account) {
     }
 }
 
+$req = $db->prepare('SELECT title, account_id, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS "CreationDateFr" FROM news ORDER BY creation_date DESC LIMIT 0, 5');
+$req->execute();
+$news = $req->fetchall();
+$req->closeCursor();
+
+$req = $db->prepare('SELECT name, point FROM player ORDER BY point DESC LIMIT 0, 7');
+$req->execute();
+$players = $req->fetchall();
+$req->closeCursor();
+
 ?>
 
 
@@ -79,16 +89,16 @@ if (isConnected()) { ?>
 if (isConnected()) {
 	$username = $_SESSION['username'];?>
 	<div class='col'>
-		<div class='card' style='max-width: 18rem;'>
-			<div class='card-header'>
+		<div class='card bg-darkblue txt-white' style='max-width: 18rem;'>
+			<div class='card-header bg-lightlightblue'>
 				Pannel utilisateur
 			</div>
 			<div class='card-body'>
 				<ul class='list-group list-group-flush list-unstyled'>
-					<li class='list-group-item'><h5 class='card-title'>Bienvenue <?php echo $username; ?></h5></li>
-					<a href='account.php' class='list-group-item list-group-item-action'><li><img src='img/person.svg' alt='person'> Mon compte</li></a>
-					<a href='..' class='list-group-item list-group-item-action'><li>Mes personnages</li></a>
-					<a href='..' class='list-group-item list-group-item-action'><li>Rechargement</li></a>
+					<li class='list-group-item bg-darkblue'><h5 class='card-title'>Bienvenue <?php echo $username; ?></h5></li>
+					<a href='account.php' class='list-group-item list-group-item-action bg-darkblue txt-white bg-hover-purple'><li>Mon compte</li></a>
+					<a href='char.php' class='list-group-item list-group-item-action bg-darkblue txt-white bg-hover-purple'><li>Mes personnages</li></a>
+					<!-- <a href='..' class='list-group-item list-group-item-action bg-darkblue txt-white'><li>Rechargement</li></a> -->
 				</ul>
 			</div>
 		</div>
@@ -100,10 +110,6 @@ if (isConnected()) {
 <div class='row mx-auto my-auto sub-sontent'> <!-- Sub-Content -->
 	<section class='col-9'>
 		<?php
-		$req = $db->prepare('SELECT title, account_id, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS "CreationDateFr" FROM news ORDER BY creation_date DESC LIMIT 0, 5');
-		$req->execute();
-		$news = $req->fetchall();
-		$req->closeCursor();
 		foreach ($news as $new) {
 			$title = htmlspecialchars($new['title']);
 			$account_id = htmlspecialchars($new['account_id']);
@@ -117,8 +123,8 @@ if (isConnected()) {
 			$req->closeCursor();
 			?>
 			<article>
-				<div class='card'>
-					<div class='card-header'>
+				<div class='card bg-darkblue borderpost txt-white'>
+					<div class='card-header bg-lightlightblue'> 
 						<?php echo $title; ?>
 					</div>
 					<div class='card-body'>
@@ -136,21 +142,21 @@ if (isConnected()) {
 		} ?>
 	</section>
 	<aside class='col'>
-		<div class='card aside-card' style='max-width: 18rem;'>
-			<div class='card-header'>
+		<div class='card aside-card bg-darkblue txt-white' style='max-width: 18rem;'>
+			<div class='card-header bg-lightlightblue'>
 				Statistiques
 			</div>
 			<div class='card-body'>
 				<ul class='list-group list-group-flush list-unstyled'>
-					<li class='list-group-item'>Comptes connectés : <?php echo $online_account; ?></li>
-					<li class='list-group-item'>Comptes créés : <?php echo $nb_accounts; ?></li>
-					<li class='list-group-item'>Joueurs créés : <?php echo $nb_players; ?></li>
+					<li class='list-group-item bg-darkblue'>Comptes connectés : <?php echo $online_account; ?></li>
+					<li class='list-group-item bg-darkblue'>Comptes créés : <?php echo $nb_accounts; ?></li>
+					<li class='list-group-item bg-darkblue'>Joueurs créés : <?php echo $nb_players; ?></li>
 				</ul>
 			</div>
 		</div>
-		<div class='card aside-card' style='max-width: 18rem; min-width: 17rem'>
-			<div class='card-header'>
-				Statistiques
+		<div class='card aside-card bg-darkblue txt-white' style='max-width: 18rem; min-width: 17rem'>
+			<div class='card-header bg-lightlightblue'>
+				Classement
 			</div>
 			<div class='card-body'>
 				<ul class='list-group list-group-flush list-unstyled'>
@@ -164,7 +170,7 @@ if (isConnected()) {
 								role="tab"
 								aria-controls="home"
 								aria-selected="true"
-							>Joueur</a>
+							>Joueurs</a>
 						</li>
 						<li class="nav-item col-md-6">
 							<a
@@ -175,7 +181,7 @@ if (isConnected()) {
 								role="tab"
 								aria-controls="profile"
 								aria-selected="false"
-							>Guilde</a>
+							>Guildes</a>
 						</li>
 					</ul>
 						<div class="tab-content" id="myTabContent">
@@ -186,23 +192,19 @@ if (isConnected()) {
 								aria-labelledby="home-tab"
 								>
 								<ul class='list-group list-group-flush list-unstyled'>
-									<li class='list-group-item'>
+									<li class='list-group-item bg-darkblue'>
 										<div class="row font-weight-bold">
 											<div class="col text-left"><?php echo "Nom" ?></div>
 											<div class="col text-right"><?php echo "Points" ?></div>
 										</div>
 									</li>
 									<?php
-									$req = $db->prepare('SELECT name, point FROM player ORDER BY point DESC LIMIT 0, 7');
-									$req->execute();
-									$players = $req->fetchall();
-									$req->closeCursor();
 									if ($players) {
 										foreach ($players as $player) {
 											$name = htmlspecialchars($player['name']);
 											$point = htmlspecialchars($player['point']);
 											?>
-											<li class='list-group-item'>
+											<li class='list-group-item bg-darkblue'>
 												<div class="row">
 													<div class="col-9 text-left"><?php echo "$name" ?></div>
 													<div class="col text-center"><?php echo "$point" ?></div>
@@ -221,13 +223,18 @@ if (isConnected()) {
 							aria-labelledby="profile-tab"
 							>
 							<ul class='list-group list-group-flush list-unstyled'>
-								<li class='list-group-item'>- Guilde</li>
-								<li class='list-group-item'>- Guilde</li>
-								<li class='list-group-item'>- Guilde</li>
-								<li class='list-group-item'>- Guilde</li>
-								<li class='list-group-item'>- Guilde</li>
-								<li class='list-group-item'>- Guilde</li>
-								<li class='list-group-item'>- Guilde</li>
+								<li class='list-group-item bg-darkblue'>
+									<div class="row font-weight-bold">
+										<div class="col text-left"><?php echo "Nom" ?></div>
+										<div class="col text-right"><?php echo "Points" ?></div>
+									</div>
+								</li>
+								<li class='list-group-item bg-darkblue'>
+									<div class="row">
+										<div class="col-9 text-left">Guilde</div>
+										<div class="col text-center">20</div>
+									</div>
+								</li>
 							</ul>
 						</div>
 					</div>

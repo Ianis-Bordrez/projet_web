@@ -1,9 +1,9 @@
 <?php 
-require_once('config.php');
+require_once('../config.php');
 
 
 if(empty($_POST['answer']) || empty($_POST['pid'])){
-    header('Location: ../forum.php');
+    header('Location: ../../forum.php');
     exit();
 }
 
@@ -20,9 +20,9 @@ if (isConnected()) {
 
 
 if ($pid){
-    header("Location: ../post.php?pid=$pid");
+    header("Location: ../../post.php?pid=$pid");
 } else {
-    header("Location: ../forum.php");
+    header("Location: ../../forum.php");
 }
 exit();
 ?>

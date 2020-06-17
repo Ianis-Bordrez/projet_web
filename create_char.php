@@ -7,14 +7,12 @@ require_once("header.php");
     
     <div id = "character">
 
-        <div class='card darkblue white'>
+        <div class='card bg-darkblue txt-white'>
             <h5 class='card-header'>Créez votre personnage</h5>
             <div class='card-body'>
                 <div class="row row-cols-3">
                     <div class="col">
-
-
-                            <button type="button" name="prev_char" id="prev_char" class="btn prev_char">Précédent</button>
+                        <button type="button" name="prev_char" id="prev_char" class="btn prev_char">Précédent</button>
                     </div>
                     
                     <div class="col">
@@ -27,17 +25,15 @@ require_once("header.php");
 
                 </div>
 
-
-
                 <div class="row row-cols-3">
                     <div class="col">
                         <button type="button" name="male_char" id="male_char" class="btn male_char">Homme</button>
                     </div>
                     <div class="col-4">
-                        <div class="form-group white">
+                        <div class="form-group txt-white">
                             <label for="pseudo" class=col-form-label">Pseudo*</label> 
-                            <div class="white">
-                                <input id="pseudo" name="pseudo" placeholder="Pseudo" class="form-control here lightblue" required="required" type="text">
+                            <div class="txt-white">
+                                <input id="pseudo" name="pseudo" placeholder="Pseudo" class="form-control here bg-lightblue txt-white" required="required" type="text">
                             </div>
                     
                         </div>
@@ -45,13 +41,13 @@ require_once("header.php");
                     </div>
                     <div class="col">
                         <button type="button" name="female_char" id="female_char" class="btn female_char">Femme</button>
-                        
                     </div>
                 </div>
             </div>
+            <button type="button" name="create_char" id="create_char" class="btn create_char">Créer</button>
         </div>
     </div>  
-        
+
         
 
         

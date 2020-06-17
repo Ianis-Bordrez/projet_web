@@ -37,20 +37,22 @@ $req->closeCursor();
 
 <section>
     <article>
-        <div class='card darkblue white borderpost'>
+        <div class='card bg-darkblue txt-white borderpost'>
             <div class='card-footer text-muted'>
                 <div class="row">
                     <div class="col-md-10">
-                        <h2 class='text-uppercase white font-weight-bold'><?php echo $title; ?></h2>
+                        <h2 class='text-uppercase txt-white font-weight-bold'><?php echo $title; ?></h2>
                         <footer class='blockquote-footer'><?php echo "Écrit par $username le $creation_date"; ?> </footer>
                     </div>
                     <div class="col-md-2">
                         <?php
-                        if($_SESSION["account_id"] == $account_id || $_SESSION["status"] == "ADMIN") { ?>
-                        <form action="script/s_delete_post.php" method="post">
-                            <button class="btn btn-primary" type="submit" name="pid" value="<?php echo $post_id; ?>">Supprimer</button>
-                        </form>
-                    <?php } ?>
+                        if(isConnected()) {
+                            if($_SESSION["account_id"] == $account_id || $_SESSION["status"] == "ADMIN") { ?>
+                            <form action="script/post/s_delete_post.php" method="post">
+                                <button class="btn btn-primary" type="submit" name="pid" value="<?php echo $post_id; ?>">Supprimer</button>
+                            </form>
+                        <?php }
+                        } ?>
                     </div>
                 </div>
             </div>
@@ -58,7 +60,7 @@ $req->closeCursor();
     </article>
 
     <article>
-        <div class='card darkblue white borderpost'>
+        <div class='card bg-darkblue txt-white borderpost'>
             <div class='card-body'>
                 <p><?php echo $content; ?></p>
             </div>
@@ -92,7 +94,7 @@ $req->closeCursor();
 
     ?>
     <article>
-        <div class='card darkblue'>
+        <div class='card bg-darkblue'>
             <div class='card-body'>
                 <p><?php echo $content2; ?></p>
             </div>
@@ -110,11 +112,11 @@ $req->closeCursor();
     <?php
     if (isConnected()) { ?>
     <article>
-        <form action='script/s_answer.php' method='post'>
-            <div class="form-group white">
+        <form action='script/post/s_answer.php' method='post'>
+            <div class="form-group txt-white">
                 <h3>Nouvelle réponse</h3>
                 <label for="answer" class="col-4 col-form-label">Contenu*</label> 
-                <textarea class="form-control" placeholder="Contenu de votre réponse" id="answer" name="answer" rows="3"></textarea>
+                <textarea class="form-control bg-darkblue txt-white" placeholder="Contenu de votre réponse" id="answer" name="answer" rows="3"></textarea>
             </div>
             <button class="btn btn-outline-light" type='submit' name='pid' value='<?php echo $post_id; ?>'>Écrire</button>
         </form>

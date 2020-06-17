@@ -11,7 +11,7 @@ $acc_info = $req->fetch();
 
 <section>
 <article>
-    <div class='card darkblue white'>
+    <div class='card bg-darkblue txt-white'>
         <h5 class='card-header'>Informations du joueur</h5>
         <div class='card-body'>
             <div class='row'>
@@ -66,7 +66,7 @@ $acc_info = $req->fetch();
             <div class="row">
                 <div class='col text-center'>
                     <a href= "edit_account.php">
-                        <button type="button" class="btn btn-primary purple">Modifier vos informations</button>
+                        <button type="button" class="btn btn-primary bg-purple">Modifier vos informations</button>
                     </a>
                 </div>
             </div>

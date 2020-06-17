@@ -1,8 +1,5 @@
 <?php
-
-//fetch_user.php
-
-require_once('config.php');
+require_once('../config.php');
 
 $req = $db->prepare("SELECT * FROM account WHERE account_id != :account_id ");
 $req->bindParam('account_id', $_SESSION['account_id']);
@@ -14,7 +11,7 @@ $output = '
 <table class="table table-dark">
   <thead>
     <tr>
-      <th scope="col">Username</th>
+      <th scope="col">Utilisateur</th>
       <th scope="col">Status</th>
       <th scope="col">Action</th>
     </tr>
@@ -28,17 +25,17 @@ foreach($results as $result) {
     $current_timestamp = date('Y-m-d H:i:s', $current_timestamp);
 
     if($result["last_activity"] > $current_timestamp) {
-        $status = '<span class="bg-success">Online</span>';
+        $status = '<span class="bg-success">En ligne</span>';
     }
     else {
-        $status = '<span class="bg-danger">Offline</span>';
+        $status = '<span class="bg-danger">Hors-ligne</span>';
     }
 
     $output .= '
     <tr>
       <td>'.$result['username'].'</td>
       <td>'.$status.'</td>
-      <td><button type="button" class="btn btn-info btn-xs start_chat purple" data-receiverid="'.$result['account_id'].'" data-receiverusername="'.$result['username'].'">Start Chat</button></td>
+      <td><button type="button" class="btn btn-info btn-xs start_chat bg-purple" data-receiverid="'.$result['account_id'].'" data-receiverusername="'.$result['username'].'">Discuter</button></td>
     </tr>
     ';
 }

@@ -1,10 +1,10 @@
 <?php
-require_once('config.php');
+require_once('../config.php');
 
 isNotConnectedRedirect();
 
 if(!isset($_POST['pid'])) {
-    redirect("../forum.php");
+    redirect("../../forum.php");
 }
 
 $req = $db->prepare('SELECT account_id FROM post WHERE post_id=:pid');
@@ -28,5 +28,5 @@ $req->execute();
 $req->closeCursor();
 
 
-redirect("../forum.php");
+redirect("../../forum.php");
 ?>
