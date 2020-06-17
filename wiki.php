@@ -57,67 +57,67 @@ $req->closeCursor();
 
 <section>
     <div class="row">
-        <div class="col-md-2 card darkblue" style="width: 18rem;">
+        <div class="col-md-2 card bg-darkblue" style="width: 18rem;">
             <div class="card-body">
                 <form action="wiki.php" method="post" class="form-example">
-                    <h5 class="card-title white">Filtres</h5>
-                    <p class="card-text white">Prix</p>
+                    <h5 class="card-title txt-white">Filtres</h5>
+                    <p class="card-text txt-white">Prix</p>
                     <div class="input-group input-group-sm mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-sm">Min</span>
+                            <span class="input-group-text bg-lightlightblue txt-white" id="inputGroup-sizing-sm">Min</span>
                         </div>
-                        <input name="PriceMin" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                        <input name="PriceMin" type="text" class="form-control bg-lightblue txt-white" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
                     </div>
                     <div class="input-group input-group-sm mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-sm">Max</span>
+                            <span class="input-group-text bg-lightlightblue txt-white" id="inputGroup-sizing-sm">Max</span>
                         </div>
-                        <input name="PriceMax" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                        <input name="PriceMax" type="text" class="form-control bg-lightblue txt-white" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
                     </div>
-                    <p class="card-text white">Niveaux</p>
+                    <p class="card-text txt-white">Niveaux</p>
                     <div class="input-group input-group-sm mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-sm">Min</span>
+                            <span class="input-group-text bg-lightlightblue txt-white" id="inputGroup-sizing-sm">Min</span>
                         </div>
-                        <input name="levelMin" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                        <input name="levelMin" type="text" class="form-control bg-lightblue txt-white" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
                     </div>
                     <div class="input-group input-group-sm mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-sm">Max</span>
+                            <span class="input-group-text bg-lightlightblue txt-white" id="inputGroup-sizing-sm">Max</span>
                         </div>
-                        <input name="levelMax" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                        <input name="levelMax" type="text" class="form-control bg-lightblue txt-white" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
                     </div>
-                    <p class="card-text white">Classes</p>
+                    <p class="card-text txt-white">Classes</p>
                     <div class="form-check form-check-inline">
                         <input name="check_box_class[]" class="form-check-input" type="checkbox" value="WARRIOR" id="checkWarrior">
-                        <label class="form-check-label white" for="checkWarrior">
+                        <label class="form-check-label txt-white" for="checkWarrior">
                             Guerrier
                         </label>
                     </div>
                     <div class="form-check form-check-inline">
                         <input name="check_box_class[]" class="form-check-input" type="checkbox" value="NINJA" id="checkNinja">
-                        <label class="form-check-label white" for="checkNinja">
+                        <label class="form-check-label txt-white" for="checkNinja">
                             Ninja
                         </label>
                     </div>
                     <div class="form-check form-check-inline">
                         <input name="check_box_class[]" class="form-check-input" type="checkbox" value="SHAMAN" id="checkShaman">
-                        <label class="form-check-label white" for="checkShaman">
+                        <label class="form-check-label txt-white" for="checkShaman">
                             Chamane
                         </label>
                     </div>
                     <div class="form-check form-check-inline">
                         <input name="check_box_class[]" class="form-check-input" type="checkbox" value="SURA" id="checkSura">
-                        <label class="form-check-label white" for="checkSura">
+                        <label class="form-check-label txt-white" for="checkSura">
                             Sura
                         </label>
                     </div>
-                    <button type="submit" name="submit" lass="btn btn-sm">Rechercher</button>
+                    <button type="submit" name="submit" class="btn-sm btn-primary">Rechercher</button>
                 </form>
             </div>
         </div>
         <div class="col-md-10">
-            <input type="text" class="form-control text-center" id="search_bar" onkeyup="search_bar()" placeholder="Rechercher un objet..">
+            <input type="text" class="form-control text-center bg-darkblue txt-white" id="search_bar" onkeyup="search_bar()" placeholder="Rechercher un objet..">
             <div class="row mx-auto my-auto items">
                 <?php
                 foreach($items as $item){
@@ -125,12 +125,12 @@ $req->closeCursor();
                     $item_price = $item["price"];
                     $item_level = $item["level"];
                     ?>
-                    <div class="item card col darkblue" style="margin:20px; min-width: 12rem;">
+                    <div class="item card col bg-darkblue" style="margin:20px; min-width: 12rem;">
                         <div class="card-body">
-                            <h5 class="card-title white"><?php echo $item_name ?></h5>
+                            <h5 class="card-title txt-white"><?php echo $item_name ?></h5>
                             <ul class='list-group list-group-flush list-unstyled'>
-                                <li class='list-group-item lightblue white'>Prix : <?php echo $item_price ?></li>
-                                <li class='list-group-item lightblue white'>Niveaux : <?php echo $item_level ?></li>
+                                <li class='list-group-item bg-lightblue txt-white'>Prix : <?php echo $item_price ?></li>
+                                <li class='list-group-item bg-lightblue txt-white'>Niveaux : <?php echo $item_level ?></li>
                             </ul>
                         </div>
                     </div>

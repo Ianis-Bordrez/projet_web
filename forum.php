@@ -29,10 +29,8 @@ if ($posts) { ?>
         ?>
 
         <article>
-            <div class='card darkblue white borderpost'>
-                <div class='card-header'>
-                    <?php echo $title; ?>
-                </div>
+            <div class='card bg-darkblue txt-white borderpost'>
+                <div class='card-header bg-lightlightblue'><?php echo $title; ?></div>
                 <div class='card-body'>
                     <form action='post.php' method='post'>
                         <button class="btn btn-outline-light" type='submit' name='pid' value='<?php echo $post_id; ?>'>Voir le post</button>
@@ -48,11 +46,13 @@ if ($posts) { ?>
                         </div>
                         <div class="col-md-2">
                             <?php
-                            if($_SESSION["account_id"] == $account_id || $_SESSION["status"] == "ADMIN") { ?>
-                                <form action="script/post/s_delete_post.php" method="post">
-                                    <button class="btn btn-primary" type="submit" name="pid" value="<?php echo $post_id; ?>">Supprimer</button>
-                                </form>
-                        <?php } ?>
+                            if (isConnected()) {
+                                if($_SESSION["account_id"] == $account_id || $_SESSION["status"] == "ADMIN") { ?>
+                                    <form action="script/post/s_delete_post.php" method="post">
+                                        <button class="btn btn-primary" type="submit" name="pid" value="<?php echo $post_id; ?>">Supprimer</button>
+                                    </form>
+                          <?php }
+                            } ?>
                         </div>
                     </div>
                 </div>
@@ -67,12 +67,12 @@ if ($posts) { ?>
 if (isConnected()) { ?>
 <article>
     <form action='script/post/s_post.php' method='post'>
-        <div class="form-group white">
+        <div class="form-group txt-white">
             <h3>Nouveau post</h3>
             <label for="post_title" class="col-4 col-form-label">Titre*</label> 
-            <input id="post_title" name="post_title" placeholder="Titre" class="form-control here" required="required" type="text">
+            <input id="post_title" name="post_title" placeholder="Titre" class="form-control here bg-darkblue txt-white" required="required" type="text">
             <label for="post_text" class="col-4 col-form-label">Contenu*</label> 
-            <textarea class="form-control" placeholder="Contenu de votre post" id="post_text" name="post_text" rows="3"></textarea>
+            <textarea class="form-control bg-darkblue txt-white" placeholder="Contenu de votre post" id="post_text" name="post_text" rows="3"></textarea>
         </div>
         <button class="btn btn-outline-light" type='submit' name='pid'>Écrire</button>
     </form>

@@ -1,8 +1,5 @@
 <?php
-
-//insert_chat.php
-
-require_once('config.php');
+require_once('../config.php');
 
 $rid = htmlspecialchars($_POST['receiver_id']);
 $message = htmlspecialchars($_POST['message']);

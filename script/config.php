@@ -58,7 +58,8 @@ function redirect($page) {
 
 function fetch_user_last_activity($user_id, $db) {
     $req = $db->prepare("SELECT account_id, last_activity FROM account WHERE account_id = :account_id ORDER BY last_activity DESC LIMIT 1");
-    $req->execute(array("account_id"=> $user_id));
+    $req->bindParam("account_id", $user_id);
+    $req->execute();
     $result = $req->fetchAll();
     foreach($result as $row) {
         return $row['last_activity'];
@@ -67,10 +68,9 @@ function fetch_user_last_activity($user_id, $db) {
 
 function fetch_user_chat_history($sender_id, $receiver_id, $db) {
     $req = $db->prepare("SELECT * FROM private_message WHERE (sender_id = :sender_id AND receiver_id = :receiver_id) OR (sender_id = :receiver_id AND receiver_id = :sender_id) ORDER BY message_date ASC");
-    $req->execute(array(
-        "sender_id" => $sender_id,
-        "receiver_id" => $receiver_id,
-    ));
+    $req->bindParam("sender_id", $sender_id);
+    $req->bindParam("receiver_id", $receiver_id);
+    $req->execute();
     $result = $req->fetchAll();
 
     $output = '<ul class="list-unstyled">';

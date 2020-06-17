@@ -12,12 +12,11 @@ if (isConnected()) {
         }
 
         $req = $db->prepare('UPDATE account SET username=:username, email=:email, description=:description WHERE account_id=:pid');
-        $req->execute(array(
-        'username' => $_POST['username'],
-        'email' => $_POST['email'],
-        'description' => $_POST['description'],
-        'pid' => $pid
-        ));
+        $req->bindParam("username", $_POST['username']);
+        $req->bindParam("email", $_POST['email']);
+        $req->bindParam("description", $_POST['description']);
+        $req->bindParam("pid", $pid);
+        $req->execute();
     }
 }
 

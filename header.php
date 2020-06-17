@@ -32,7 +32,7 @@ $start = $time;
 <body>
     <div class="wrapper">
         <!-- Sidebar Holder -->
-        <nav id="sidebar" class = "darkblue">
+        <nav id="sidebar" class = "bg-darkblue">
             <div class="sidebar-header">
                 <h3>Metin 2</h3>
             </div>
@@ -72,12 +72,12 @@ $start = $time;
         </nav>
 
         <!-- Page Content Holder -->
-        <div id="content" class= "lightblue">
+        <div id="content" class= "bg-lightblue">
 
-            <nav class="navbar navbar-expand-lg darkblue">
+            <nav class="navbar navbar-expand-lg bg-darkblue">
                 <div class="container-fluid">
 
-                    <button type="button" id="sidebarCollapse" class="navbar-btn darkblue">
+                    <button type="button" id="sidebarCollapse" class="navbar-btn bg-darkblue">
                         <span></span>
                         <span></span>
                         <span></span>
@@ -93,15 +93,15 @@ $start = $time;
 						<?php
 						if (isConnected()) { ?>
 							<li class='nav-item'>
-								<a class='nav-link white grey-hover' href='script/s_signout.php'>Déconnexion</a>
+								<a class='nav-link txt-white grey-hover' href='script/s_signout.php'>Déconnexion</a>
 							</li>
 						<?php
 						} else { ?>
 							<li class='nav-item'>
-								<a class='nav-link white grey-hover' href='signin_signup.php'>Connexion</a>
+								<a class='nav-link txt-white grey-hover' href='signin_signup.php'>Connexion</a>
 							</li>
 							<li class='nav-item'>
-								<a class='nav-link white grey-hover' href='signin_signup.php'>Inscription</a>
+								<a class='nav-link txt-white grey-hover' href='signin_signup.php'>Inscription</a>
 							</li>
 
 						<?php

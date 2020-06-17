@@ -13,11 +13,11 @@ isNotConnectedRedirect();
 <div class="container">
     <br/>
 
-    <h3 align="center">Chat Application using PHP Ajax Jquery</a></h3><br />
-    <br/>
+    <h3 align="center" class="txt-white">Chat</a></h3><br />
     
     <div class="table-responsive">
-        <h4 align="center">Online User</h4>
+        <h4 align="center" class="txt-white">Liste des utilisateurs</h4>
+        <br>
         <div id="user_details"></div>
         <div id="user_model_details"></div>
     </div>

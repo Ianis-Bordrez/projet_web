@@ -1,9 +1,9 @@
 <?php 
-require_once('config.php');
+require_once('../config.php');
 
 
 if(empty($_POST['post_title']) || empty($_POST['post_text'])){
-    header('Location: ../forum.php');
+    header('Location: ../../forum.php');
     exit();
 }
 
@@ -19,6 +19,6 @@ if (isConnected()) {
 }
 
 
-header("Location: ../forum.php");
+header("Location: ../../forum.php");
 exit();
 ?>

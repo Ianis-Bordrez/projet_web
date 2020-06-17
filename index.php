@@ -89,16 +89,16 @@ if (isConnected()) { ?>
 if (isConnected()) {
 	$username = $_SESSION['username'];?>
 	<div class='col'>
-		<div class='card' style='max-width: 18rem;'>
-			<div class='card-header'>
+		<div class='card bg-darkblue txt-white' style='max-width: 18rem;'>
+			<div class='card-header bg-lightlightblue'>
 				Pannel utilisateur
 			</div>
 			<div class='card-body'>
 				<ul class='list-group list-group-flush list-unstyled'>
-					<li class='list-group-item'><h5 class='card-title'>Bienvenue <?php echo $username; ?></h5></li>
-					<a href='account.php' class='list-group-item list-group-item-action'><li><img src='img/person.svg' alt='person'> Mon compte</li></a>
-					<a href='..' class='list-group-item list-group-item-action'><li>Mes personnages</li></a>
-					<a href='..' class='list-group-item list-group-item-action'><li>Rechargement</li></a>
+					<li class='list-group-item bg-darkblue'><h5 class='card-title'>Bienvenue <?php echo $username; ?></h5></li>
+					<a href='account.php' class='list-group-item list-group-item-action bg-darkblue txt-white bg-hover-purple'><li>Mon compte</li></a>
+					<a href='char.php' class='list-group-item list-group-item-action bg-darkblue txt-white bg-hover-purple'><li>Mes personnages</li></a>
+					<!-- <a href='..' class='list-group-item list-group-item-action bg-darkblue txt-white'><li>Rechargement</li></a> -->
 				</ul>
 			</div>
 		</div>
@@ -123,8 +123,8 @@ if (isConnected()) {
 			$req->closeCursor();
 			?>
 			<article>
-				<div class='card'>
-					<div class='card-header'>
+				<div class='card bg-darkblue borderpost txt-white'>
+					<div class='card-header bg-lightlightblue'> 
 						<?php echo $title; ?>
 					</div>
 					<div class='card-body'>
@@ -142,20 +142,20 @@ if (isConnected()) {
 		} ?>
 	</section>
 	<aside class='col'>
-		<div class='card aside-card' style='max-width: 18rem;'>
-			<div class='card-header'>
+		<div class='card aside-card bg-darkblue txt-white' style='max-width: 18rem;'>
+			<div class='card-header bg-lightlightblue'>
 				Statistiques
 			</div>
 			<div class='card-body'>
 				<ul class='list-group list-group-flush list-unstyled'>
-					<li class='list-group-item'>Comptes connectés : <?php echo $online_account; ?></li>
-					<li class='list-group-item'>Comptes créés : <?php echo $nb_accounts; ?></li>
-					<li class='list-group-item'>Joueurs créés : <?php echo $nb_players; ?></li>
+					<li class='list-group-item bg-darkblue'>Comptes connectés : <?php echo $online_account; ?></li>
+					<li class='list-group-item bg-darkblue'>Comptes créés : <?php echo $nb_accounts; ?></li>
+					<li class='list-group-item bg-darkblue'>Joueurs créés : <?php echo $nb_players; ?></li>
 				</ul>
 			</div>
 		</div>
-		<div class='card aside-card' style='max-width: 18rem; min-width: 17rem'>
-			<div class='card-header'>
+		<div class='card aside-card bg-darkblue txt-white' style='max-width: 18rem; min-width: 17rem'>
+			<div class='card-header bg-lightlightblue'>
 				Classement
 			</div>
 			<div class='card-body'>
@@ -192,7 +192,7 @@ if (isConnected()) {
 								aria-labelledby="home-tab"
 								>
 								<ul class='list-group list-group-flush list-unstyled'>
-									<li class='list-group-item'>
+									<li class='list-group-item bg-darkblue'>
 										<div class="row font-weight-bold">
 											<div class="col text-left"><?php echo "Nom" ?></div>
 											<div class="col text-right"><?php echo "Points" ?></div>
@@ -204,7 +204,7 @@ if (isConnected()) {
 											$name = htmlspecialchars($player['name']);
 											$point = htmlspecialchars($player['point']);
 											?>
-											<li class='list-group-item'>
+											<li class='list-group-item bg-darkblue'>
 												<div class="row">
 													<div class="col-9 text-left"><?php echo "$name" ?></div>
 													<div class="col text-center"><?php echo "$point" ?></div>
@@ -223,13 +223,18 @@ if (isConnected()) {
 							aria-labelledby="profile-tab"
 							>
 							<ul class='list-group list-group-flush list-unstyled'>
-								<li class='list-group-item'>- Guilde</li>
-								<li class='list-group-item'>- Guilde</li>
-								<li class='list-group-item'>- Guilde</li>
-								<li class='list-group-item'>- Guilde</li>
-								<li class='list-group-item'>- Guilde</li>
-								<li class='list-group-item'>- Guilde</li>
-								<li class='list-group-item'>- Guilde</li>
+								<li class='list-group-item bg-darkblue'>
+									<div class="row font-weight-bold">
+										<div class="col text-left"><?php echo "Nom" ?></div>
+										<div class="col text-right"><?php echo "Points" ?></div>
+									</div>
+								</li>
+								<li class='list-group-item bg-darkblue'>
+									<div class="row">
+										<div class="col-9 text-left">Guilde</div>
+										<div class="col text-center">20</div>
+									</div>
+								</li>
 							</ul>
 						</div>
 					</div>
