@@ -150,7 +150,7 @@ if (isConnected()) {
 		</div>
 		<div class='card aside-card' style='max-width: 18rem; min-width: 17rem'>
 			<div class='card-header'>
-				Statistiques
+				Classement
 			</div>
 			<div class='card-body'>
 				<ul class='list-group list-group-flush list-unstyled'>
@@ -164,7 +164,7 @@ if (isConnected()) {
 								role="tab"
 								aria-controls="home"
 								aria-selected="true"
-							>Joueur</a>
+							>Joueurs</a>
 						</li>
 						<li class="nav-item col-md-6">
 							<a
@@ -175,7 +175,7 @@ if (isConnected()) {
 								role="tab"
 								aria-controls="profile"
 								aria-selected="false"
-							>Guilde</a>
+							>Guildes</a>
 						</li>
 					</ul>
 						<div class="tab-content" id="myTabContent">
