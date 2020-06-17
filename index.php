@@ -33,6 +33,16 @@ foreach($accounts as $account) {
     }
 }
 
+$req = $db->prepare('SELECT title, account_id, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS "CreationDateFr" FROM news ORDER BY creation_date DESC LIMIT 0, 5');
+$req->execute();
+$news = $req->fetchall();
+$req->closeCursor();
+
+$req = $db->prepare('SELECT name, point FROM player ORDER BY point DESC LIMIT 0, 7');
+$req->execute();
+$players = $req->fetchall();
+$req->closeCursor();
+
 ?>
 
 
@@ -100,10 +110,6 @@ if (isConnected()) {
 <div class='row mx-auto my-auto sub-sontent'> <!-- Sub-Content -->
 	<section class='col-9'>
 		<?php
-		$req = $db->prepare('SELECT title, account_id, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS "CreationDateFr" FROM news ORDER BY creation_date DESC LIMIT 0, 5');
-		$req->execute();
-		$news = $req->fetchall();
-		$req->closeCursor();
 		foreach ($news as $new) {
 			$title = htmlspecialchars($new['title']);
 			$account_id = htmlspecialchars($new['account_id']);
@@ -193,10 +199,6 @@ if (isConnected()) {
 										</div>
 									</li>
 									<?php
-									$req = $db->prepare('SELECT name, point FROM player ORDER BY point DESC LIMIT 0, 7');
-									$req->execute();
-									$players = $req->fetchall();
-									$req->closeCursor();
 									if ($players) {
 										foreach ($players as $player) {
 											$name = htmlspecialchars($player['name']);
