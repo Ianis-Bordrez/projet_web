@@ -49,7 +49,7 @@ if ($posts) { ?>
                         <div class="col-md-2">
                             <?php
                             if($_SESSION["account_id"] == $account_id || $_SESSION["status"] == "ADMIN") { ?>
-                                <form action="script/s_delete_post.php" method="post">
+                                <form action="script/post/s_delete_post.php" method="post">
                                     <button class="btn btn-primary" type="submit" name="pid" value="<?php echo $post_id; ?>">Supprimer</button>
                                 </form>
                         <?php } ?>
@@ -66,7 +66,7 @@ if ($posts) { ?>
 }
 if (isConnected()) { ?>
 <article>
-    <form action='script/s_post.php' method='post'>
+    <form action='script/post/s_post.php' method='post'>
         <div class="form-group white">
             <h3>Nouveau post</h3>
             <label for="post_title" class="col-4 col-form-label">Titre*</label> 

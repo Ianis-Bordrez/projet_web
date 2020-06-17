@@ -7,7 +7,7 @@ $(document).ready(function(){
 
     function fetch_user() {
         $.ajax({
-        url:"script/s_fetch_user.php",
+        url:"script/chat/s_fetch_user.php",
         type:"POST",
         success:function(data) {
             $('#user_details').html(data);
@@ -42,7 +42,7 @@ $(document).ready(function(){
         var receiver_id = $(this).attr('id');
         var message = $('#message_'+receiver_id).val();
         $.ajax({
-            url:"script/s_insert_chat.php",
+            url:"script/chat/s_insert_chat.php",
             type:"POST",
             data:{receiver_id:receiver_id, message:message},
             success:function(data) {
@@ -54,7 +54,7 @@ $(document).ready(function(){
 
     function fetch_user_chat_history(receiver_id) {
         $.ajax({
-        url:"script/s_fetch_user_chat_history.php",
+        url:"script/chat/s_fetch_user_chat_history.php",
         type:"POST",
         data:{receiver_id:receiver_id},
         success:function(data){

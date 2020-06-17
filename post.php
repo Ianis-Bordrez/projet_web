@@ -47,7 +47,7 @@ $req->closeCursor();
                     <div class="col-md-2">
                         <?php
                         if($_SESSION["account_id"] == $account_id || $_SESSION["status"] == "ADMIN") { ?>
-                        <form action="script/s_delete_post.php" method="post">
+                        <form action="script/post/s_delete_post.php" method="post">
                             <button class="btn btn-primary" type="submit" name="pid" value="<?php echo $post_id; ?>">Supprimer</button>
                         </form>
                     <?php } ?>
@@ -110,7 +110,7 @@ $req->closeCursor();
     <?php
     if (isConnected()) { ?>
     <article>
-        <form action='script/s_answer.php' method='post'>
+        <form action='script/post/s_answer.php' method='post'>
             <div class="form-group white">
                 <h3>Nouvelle réponse</h3>
                 <label for="answer" class="col-4 col-form-label">Contenu*</label> 
