@@ -52,6 +52,10 @@ article {
 .txt-white {
   color: white !important;
 }
+.txt-grey {
+  color: grey !important;
+}
+
 .post {
   margin-top: 500px;
   margin-bottom: 500px;

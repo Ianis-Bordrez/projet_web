@@ -68,13 +68,13 @@ function fetch_user_chat_history($sender_id, $receiver_id, $db) {
     foreach($result as $row) {
         $user_name = '';
         if($row["sender_id"] == $sender_id) {
-            $user_name = '<b class="text-success">You</b>';
+            $user_name = '<b class="text-success">Vous</b>';
         } else {
             $user_name = '<b class="text-danger">'.get_user_name($row['sender_id'], $db).'</b>';
         }
         $output .= '
             <li style="border-bottom:1px dotted #ccc">
-            <p>'.$user_name.' - '.$row["message"].'
+            <p>'.$user_name.' <span class="txt-white">- '.$row["message"].'</span>'.'
             <div align="right">
                 - <small><em>'.$row['message_date'].'</em></small>
             </div>
