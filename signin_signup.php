@@ -34,6 +34,7 @@ require_once("header.php");
                     </form>
                 </div>
             </div>
+            <a href="mail.php" class="badge badge-light text-center">Mot de passe oublié</a>
         </div>
     </div>
     <div class="col-md-5 card bg-darkblue">

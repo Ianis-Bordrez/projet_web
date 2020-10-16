@@ -8,19 +8,27 @@ if (isset($_POST["submit"])) {
     $conditions2 = array();
     
     if(!empty($_POST["PriceMin"])) {
-      $conditions[] = "price >= ".$_POST['PriceMin'];
+        if(is_numeric($_POST["PriceMin"])) {
+            $conditions[] = "price >= ".$_POST['PriceMin'];
+        }
     }
 
     if(!empty($_POST["PriceMax"])) {
-        $conditions[] = "price <= ".$_POST['PriceMax'];
+        if(is_numeric($_POST["PriceMax"])) {
+            $conditions[] = "price <= ".$_POST['PriceMax'];
+        }
     }
 
     if(!empty($_POST["levelMin"])) {
-        $conditions[] = "level >= ".$_POST['levelMin'];
+        if(is_numeric($_POST["levelMin"])) {
+            $conditions[] = "level >= ".$_POST['levelMin'];
+        }
     }
 
     if(!empty($_POST["levelMax"])) {
-        $conditions[] = "level <= ".$_POST['levelMax'];
+        if(is_numeric($_POST["levelMax"])) {
+            $conditions[] = "level <= ".$_POST['levelMax'];
+        }
     }
 
     if (!empty($_POST["check_box_class"])) {

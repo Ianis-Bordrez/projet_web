@@ -66,7 +66,7 @@ $start = $time;
 
             <ul class="list-unstyled CTAs">
                 <li>
-                    <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Télécharger</a>
+                    <a href="README.md" class="download">Télécharger</a>
                 </li>
             </ul>
         </nav>
